@@ -1,31 +1,24 @@
-# Ribbon's WebRTC JavaScript SDK
+# Ribbon's Citrix WebRTC JavaScript SDK
 
 ## Install
 
 ### Using npm :
 
-`$ npm install @rbbn/webrtc-js-sdk`
+`$ npm install @rbbn/citrix-webrtc-sdk`
 
 #### Install a particular build :
 
 To install a particular build branch or beta branch with the Github URL, run:
 
-`$ npm install https://github.com/RibbonCommunications/webrtc-js-sdk#<build number or "beta"> --save`
+`$ npm install https://github.com/RibbonCommunications/citrix-webrtc-sdk#<build number or "beta"> --save`
 
-### In the browser :
-```html
-<script src="https://unpkg.com/@rbbn/webrtc-js-sdk@6.10.0/dist/webrtc.js"
-  integrity="sha384-RDDYGQpDH6Tcqu5mJCk5VNh71oX8xBeldSyZGHkIq+Obrs6acPIklneBgE7SjFWz"
-  crossorigin="anonymous">
-</script>
-```
 ## Documentation
 
 The information about tutorials and documents can be found in the links below
 
-* `Documents`: [docs](https://RibbonCommunications.github.io/webrtc-js-sdk/docs)
+* `Documents`: [docs](https://RibbonCommunications.github.io/citrix-webrtc-sdk/docs)
 
-* `Tutorials`: [SDK Configuration](https://RibbonCommunications.github.io/webrtc-js-sdk/tutorials/#/Configurations)
+* `Tutorials`: [SDK Configuration](https://RibbonCommunications.github.io/citrix-webrtc-sdk/tutorials/index.html#/Getting%20Started)
 
 ## Compatibility
 
