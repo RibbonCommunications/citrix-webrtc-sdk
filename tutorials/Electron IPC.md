@@ -60,3 +60,4 @@ contextBridge.exposeInMainWorld(...)
 ```
 
 However, some versions of Electron only allow [very specific things](https://www.electronjs.org/docs/latest/tutorial/sandbox#preload-scripts) to be `require`'d in a preload script, which may prevent you from doing this. Setting either `sandox: false` or `nodeIntegration: true` in the BrowserWindow webPreferences object may workaround this limitation. Both of these settings have their intended uses, and changing their values will have security implications for your app, and so their documentation should be reviewed before making these changes. If you choose not to implement either of these settings, copy and paste the contents of this SDK's [preload/renderer script](link TBD) into your own preload.js.
+

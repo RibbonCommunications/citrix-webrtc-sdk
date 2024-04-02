@@ -1,0 +1,2245 @@
+[
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "The top level 'api' is what is available to an app after the Citrix WebRTC SDK has been imported.\nIt contains various top-level functions that pertain to Citrix WebRTC SDK global instance, as well as event emitter methods."
+            }
+          ]
+        }
+      ]
+    },
+    "tags": [
+      {
+        "title": "public",
+        "description": null,
+        "lineNumber": 4,
+        "type": null
+      },
+      {
+        "title": "module",
+        "description": null,
+        "lineNumber": 5,
+        "type": null,
+        "name": "api"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 10,
+        "column": 0
+      },
+      "end": {
+        "line": 16,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 257,
+          "column": 1
+        }
+      },
+      "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
+    },
+    "augments": [],
+    "examples": [],
+    "implements": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "yields": [],
+    "access": "public",
+    "kind": "module",
+    "name": "api",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": [
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Initializes the Citrix UC SDK and sets up the WebRTC SDK to run in Citrix proxy mode."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 4
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 5
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 6,
+              "name": "setup"
+            },
+            {
+              "title": "param",
+              "description": "The WebRTC JS SDK.",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "Object"
+              },
+              "name": "SDK"
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_STATE` if Citrix proxy mode is already setup.",
+              "lineNumber": 8,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_PARAM` if provided SDK parameter is invalid.",
+              "lineNumber": 9,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_STATE` if active calls are ongoing.",
+              "lineNumber": 10,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `VERSION_MISMATCH` if WebRTC JS SDK and Citrix WebRTC SDK versions mismatch.",
+              "lineNumber": 11,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `CITRIX_SDK_ERROR` if Citrix UC SDK fails to initialize.",
+              "lineNumber": 12,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "returns",
+              "description": "Resolves upon successful completion",
+              "lineNumber": 13,
+              "type": {
+                "type": "NameExpression",
+                "name": "Promise"
+              }
+            },
+            {
+              "title": "example",
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\n\n// Setup proxy mode on WebRTC SDK client by passing in the created client.\ntry {\n  await citrixClient.setup(webrtcClient)\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}",
+              "lineNumber": 14
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 2
+            },
+            "end": {
+              "line": 48,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 49,
+                "column": 2
+              },
+              "end": {
+                "line": 112,
+                "column": 3
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\n\n// Setup proxy mode on WebRTC SDK client by passing in the created client.\ntry {\n  await citrixClient.setup(webrtcClient)\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "SDK",
+              "lineNumber": 7,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The WebRTC JS SDK."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Object"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Resolves upon successful completion"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "Promise"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_STATE"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if Citrix proxy mode is already setup."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_PARAM"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if provided SDK parameter is invalid."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_STATE"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if active calls are ongoing."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "VERSION_MISMATCH"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if WebRTC JS SDK and Citrix WebRTC SDK versions mismatch."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "CITRIX_SDK_ERROR"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if Citrix UC SDK fails to initialize."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            }
+          ],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "kind": "function",
+          "name": "setup",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "setup",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.setup"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Tears down the Citrix UC SDK and returns the WebRTC JS SDK to non-proxy mode."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 4
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 5
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 6,
+              "name": "teardown"
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error if active calls are ongoing.",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "example",
+              "description": "try {\n  citrixClient.teardown()\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}",
+              "lineNumber": 8
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 114,
+              "column": 2
+            },
+            "end": {
+              "line": 128,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 129,
+                "column": 2
+              },
+              "end": {
+                "line": 153,
+                "column": 3
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "try {\n  citrixClient.teardown()\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}"
+            }
+          ],
+          "implements": [],
+          "params": [],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error if active calls are ongoing."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            }
+          ],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "kind": "function",
+          "name": "teardown",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "teardown",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.teardown"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Returns whether proxy mode has been setup or not."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 4
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 5
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 6,
+              "name": "isSetup"
+            },
+            {
+              "title": "returns",
+              "description": "Returns true if proxy mode is setup, false otherwise.",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "boolean"
+              }
+            },
+            {
+              "title": "example",
+              "description": "log(citrixClient.isSetup())     // false\nawait citrixClient.setup(webrtcSDK)\nlog(citrixClient.isSetup())     // true\ncitrixClient.teardown()\nlog(citrixClient.isSetup())     // false",
+              "lineNumber": 8
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 155,
+              "column": 2
+            },
+            "end": {
+              "line": 169,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 170,
+                "column": 2
+              },
+              "end": {
+                "line": 172,
+                "column": 3
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "log(citrixClient.isSetup())     // false\nawait citrixClient.setup(webrtcSDK)\nlog(citrixClient.isSetup())     // true\ncitrixClient.teardown()\nlog(citrixClient.isSetup())     // false"
+            }
+          ],
+          "implements": [],
+          "params": [],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Returns true if proxy mode is setup, false otherwise."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "boolean"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "kind": "function",
+          "name": "isSetup",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "isSetup",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.isSetup"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Returns E911 data from the client."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 4
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 5
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 6,
+              "name": "getE911Data"
+            },
+            {
+              "title": "returns",
+              "description": "Client E911 data",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "Object"
+              }
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 174,
+              "column": 2
+            },
+            "end": {
+              "line": 182,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 183,
+                "column": 2
+              },
+              "end": {
+                "line": 185,
+                "column": 3
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
+          },
+          "augments": [],
+          "examples": [],
+          "implements": [],
+          "params": [],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Client E911 data"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "Object"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "kind": "function",
+          "name": "getE911Data",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "getE911Data",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.getE911Data"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Add an event listener for the specified event type. The event is emitted by the SDK instance."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 4
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 5,
+              "name": "on"
+            },
+            {
+              "title": "param",
+              "description": "The event type for which to add the listener. See {@link api.eventTypes} for possible event types",
+              "lineNumber": 6,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "type"
+            },
+            {
+              "title": "param",
+              "description": "The listener for the event type. The parameters of the listener depend on the event type.",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "Function"
+              },
+              "name": "listener"
+            },
+            {
+              "title": "example",
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\n// Listen for events of a specific type emitted by the SDK.\ncitrixClient.on('dummy:event', function (params) {\n   // Handle the event.\n})",
+              "lineNumber": 8
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 187,
+              "column": 2
+            },
+            "end": {
+              "line": 202,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 203,
+                "column": 2
+              },
+              "end": {
+                "line": 205,
+                "column": 3
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\n// Listen for events of a specific type emitted by the SDK.\ncitrixClient.on('dummy:event', function (params) {\n   // Handle the event.\n})"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "type",
+              "lineNumber": 6,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The event type for which to add the listener. See "
+                      },
+                      {
+                        "type": "link",
+                        "url": "#apieventtypes",
+                        "title": null,
+                        "jsdoc": true,
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "api.eventTypes"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "value": " for possible event types"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "param",
+              "name": "listener",
+              "lineNumber": 7,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The listener for the event type. The parameters of the listener depend on the event type."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Function"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "memberof": "api",
+          "kind": "function",
+          "name": "on",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "on",
+              "kind": "function"
+            }
+          ],
+          "namespace": "apion"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Removes an event listener for the specified event type. The event is emitted by the SDK instance."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 4
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 5,
+              "name": "off"
+            },
+            {
+              "title": "param",
+              "description": "The event type for which to remote the listener.",
+              "lineNumber": 6,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "type"
+            },
+            {
+              "title": "param",
+              "description": "The listener to remove.",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "Function"
+              },
+              "name": "listener"
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 207,
+              "column": 2
+            },
+            "end": {
+              "line": 215,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 216,
+                "column": 2
+              },
+              "end": {
+                "line": 218,
+                "column": 3
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
+          },
+          "augments": [],
+          "examples": [],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "type",
+              "lineNumber": 6,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The event type for which to remote the listener."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "param",
+              "name": "listener",
+              "lineNumber": 7,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The listener to remove."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Function"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "memberof": "api",
+          "kind": "function",
+          "name": "off",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "off",
+              "kind": "function"
+            }
+          ],
+          "namespace": "apioff"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Adds a global event listener to SDK instance."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 4
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 5,
+              "name": "subscribe"
+            },
+            {
+              "title": "param",
+              "description": "The event listener to add. The parameters are (type, ...args), where args depend on the event type.",
+              "lineNumber": 6,
+              "type": {
+                "type": "NameExpression",
+                "name": "Function"
+              },
+              "name": "listener"
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 220,
+              "column": 2
+            },
+            "end": {
+              "line": 227,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 228,
+                "column": 2
+              },
+              "end": {
+                "line": 230,
+                "column": 3
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
+          },
+          "augments": [],
+          "examples": [],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "listener",
+              "lineNumber": 6,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The event listener to add. The parameters are (type, ...args), where args depend on the event type."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Function"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "memberof": "api",
+          "kind": "function",
+          "name": "subscribe",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "subscribe",
+              "kind": "function"
+            }
+          ],
+          "namespace": "apisubscribe"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Removes a global event listener from SDK instance."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 4
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 5,
+              "name": "unsubscribe"
+            },
+            {
+              "title": "param",
+              "description": "The event listener to remove.",
+              "lineNumber": 6,
+              "type": {
+                "type": "NameExpression",
+                "name": "Function"
+              },
+              "name": "listener"
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 232,
+              "column": 2
+            },
+            "end": {
+              "line": 239,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 240,
+                "column": 2
+              },
+              "end": {
+                "line": 242,
+                "column": 3
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
+          },
+          "augments": [],
+          "examples": [],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "listener",
+              "lineNumber": 6,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The event listener to remove."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Function"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "memberof": "api",
+          "kind": "function",
+          "name": "unsubscribe",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "unsubscribe",
+              "kind": "function"
+            }
+          ],
+          "namespace": "apiunsubscribe"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Returns the current version of the Citrix WebRTC SDK."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 4
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 5
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 6,
+              "name": "getVersion"
+            },
+            {
+              "title": "returns",
+              "description": "The Citrix WebRTC SDK version",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 0
+            },
+            "end": {
+              "line": 17,
+              "column": 3
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 0
+              },
+              "end": {
+                "line": 20,
+                "column": 1
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/utils/version.js"
+          },
+          "augments": [],
+          "examples": [],
+          "implements": [],
+          "params": [],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The Citrix WebRTC SDK version"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "kind": "function",
+          "name": "getVersion",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "getVersion",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.getVersion"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Possible error codes for the errors thrown by the Citrix WebRTC SDK."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Each error thrown by the SDK is in the format of "
+                  },
+                  {
+                    "type": "link",
+                    "url": "#apicitrixerror",
+                    "title": null,
+                    "jsdoc": true,
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "api.CitrixError"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "value": ". These error objects\ninclude a code and message. The codes provide a basic hint as to what the error is as per descriptions below.\nThe message provides more context about the error encountered."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 7,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 8
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 9
+            },
+            {
+              "title": "name",
+              "description": null,
+              "lineNumber": 10,
+              "name": "errorCodes"
+            },
+            {
+              "title": "type",
+              "description": null,
+              "lineNumber": 11,
+              "type": {
+                "type": "NameExpression",
+                "name": "Object"
+              }
+            },
+            {
+              "title": "property",
+              "description": "A CITRIX_SDK_ERROR error indicates that the Citrix UC SDK threw an error.",
+              "lineNumber": 12,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "CITRIX_SDK_ERROR"
+            },
+            {
+              "title": "property",
+              "description": "An INVALID_PARAM error indicates that an invalid parameter was passed to the API.",
+              "lineNumber": 13,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "INVALID_PARAM"
+            },
+            {
+              "title": "property",
+              "description": "An INVALID_STATE error indicates that SDK is in an invalid state proceed with the operation.",
+              "lineNumber": 14,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "INVALID_STATE"
+            },
+            {
+              "title": "property",
+              "description": "A VERSION_MISMATCH error indicates that the provided WebRTC SDK version does not match the Citrix WebRTC SDK version.",
+              "lineNumber": 15,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "VERSION_MISMATCH"
+            },
+            {
+              "title": "example",
+              "description": "import citrixProxy from '@rbbn/citrix-webrtc-sdk/webrtc.citrix.js'\ntry {\n  await citrixProxy.setup(rbbnWebRTC)\n} catch (error) {\n  // Error contains a `code` and `message` property.\n  const { code, message } = error\n  switch (code) {\n    case citrixProxy.errorCodes.CITRIX_SDK_ERROR:\n      // Handle error originating from the Citrix UC SDK.\n    case citrixProxy.errorCodes.INVALID_PARAM:\n      // Handle the error with the parameter provided.\n    case citrixProxy.errorCodes.INVALID_STATE:\n      // Handle an SDK not being in the correct state for the API call.\n    case citrixProxy.errorCodes.VERSION_MISMATCH:\n      // Handle the two SDK's not being on the same version.\n  }\n}",
+              "lineNumber": 16
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 35,
+              "column": 3
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 36,
+                "column": 0
+              },
+              "end": {
+                "line": 41,
+                "column": 1
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/utils/error.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "import citrixProxy from '@rbbn/citrix-webrtc-sdk/webrtc.citrix.js'\ntry {\n  await citrixProxy.setup(rbbnWebRTC)\n} catch (error) {\n  // Error contains a `code` and `message` property.\n  const { code, message } = error\n  switch (code) {\n    case citrixProxy.errorCodes.CITRIX_SDK_ERROR:\n      // Handle error originating from the Citrix UC SDK.\n    case citrixProxy.errorCodes.INVALID_PARAM:\n      // Handle the error with the parameter provided.\n    case citrixProxy.errorCodes.INVALID_STATE:\n      // Handle an SDK not being in the correct state for the API call.\n    case citrixProxy.errorCodes.VERSION_MISMATCH:\n      // Handle the two SDK's not being on the same version.\n  }\n}"
+            }
+          ],
+          "implements": [],
+          "params": [],
+          "properties": [
+            {
+              "title": "property",
+              "name": "CITRIX_SDK_ERROR",
+              "lineNumber": 12,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "A CITRIX_SDK_ERROR error indicates that the Citrix UC SDK threw an error."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "property",
+              "name": "INVALID_PARAM",
+              "lineNumber": 13,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "An INVALID_PARAM error indicates that an invalid parameter was passed to the API."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "property",
+              "name": "INVALID_STATE",
+              "lineNumber": 14,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "An INVALID_STATE error indicates that SDK is in an invalid state proceed with the operation."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "property",
+              "name": "VERSION_MISMATCH",
+              "lineNumber": 15,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "A VERSION_MISMATCH error indicates that the provided WebRTC SDK version does not match the Citrix WebRTC SDK version."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            }
+          ],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "name": "errorCodes",
+          "type": {
+            "type": "NameExpression",
+            "name": "Object"
+          },
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "errorCodes",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.errorCodes"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "The CitrixError object. Provides information about an error that occurred in the Citrix WebRTC SDK."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 2,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 3
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 4
+            },
+            {
+              "title": "typedef",
+              "description": null,
+              "lineNumber": 5,
+              "type": {
+                "type": "NameExpression",
+                "name": "Object"
+              },
+              "name": "CitrixError"
+            },
+            {
+              "title": "property",
+              "description": "One of {@link api.errorCodes}",
+              "lineNumber": 6,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "code"
+            },
+            {
+              "title": "property",
+              "description": "A human-readable message to describe the error.",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "message"
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 43,
+              "column": 0
+            },
+            "end": {
+              "line": 51,
+              "column": 3
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 52,
+                "column": 0
+              },
+              "end": {
+                "line": 61,
+                "column": 1
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/utils/error.js"
+          },
+          "augments": [],
+          "examples": [],
+          "implements": [],
+          "params": [],
+          "properties": [
+            {
+              "title": "property",
+              "name": "code",
+              "lineNumber": 6,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "One of "
+                      },
+                      {
+                        "type": "link",
+                        "url": "#apierrorcodes",
+                        "title": null,
+                        "jsdoc": true,
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "api.errorCodes"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "property",
+              "name": "message",
+              "lineNumber": 7,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "A human-readable message to describe the error."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            }
+          ],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "kind": "typedef",
+          "name": "CitrixError",
+          "type": {
+            "type": "NameExpression",
+            "name": "Object"
+          },
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "CitrixError",
+              "kind": "typedef",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.CitrixError"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Possible events emitted by the Citrix WebRTC SDK"
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 4
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 5
+            },
+            {
+              "title": "name",
+              "description": null,
+              "lineNumber": 6,
+              "name": "eventTypes"
+            },
+            {
+              "title": "type",
+              "description": null,
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "Object"
+              }
+            },
+            {
+              "title": "property",
+              "description": "Citrix Webrtc redirection initiated successfully",
+              "lineNumber": 8,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "CITRIX_CONNECTED"
+            },
+            {
+              "title": "property",
+              "description": "Citrix Webrtc redirection failed to start successfully or failed after connection",
+              "lineNumber": 9,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "CITRIX_DISCONNECTED"
+            },
+            {
+              "title": "property",
+              "description": "Client E911 data has changed; updated data should be retrieved via {@link api.getE911Data}",
+              "lineNumber": 10,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "CITRIX_E911_DATA_CHANGED"
+            },
+            {
+              "title": "example",
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n// Start listening for events\ncitrixClient.on(citrixClient.eventTypes.CITRIX_E911_DATA_CHANGED, data => {\n  // Do something with data\n})",
+              "lineNumber": 11
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 18,
+              "column": 3
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 0
+              },
+              "end": {
+                "line": 25,
+                "column": 1
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/events.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n// Start listening for events\ncitrixClient.on(citrixClient.eventTypes.CITRIX_E911_DATA_CHANGED, data => {\n  // Do something with data\n})"
+            }
+          ],
+          "implements": [],
+          "params": [],
+          "properties": [
+            {
+              "title": "property",
+              "name": "CITRIX_CONNECTED",
+              "lineNumber": 8,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Citrix Webrtc redirection initiated successfully"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "property",
+              "name": "CITRIX_DISCONNECTED",
+              "lineNumber": 9,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Citrix Webrtc redirection failed to start successfully or failed after connection"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "property",
+              "name": "CITRIX_E911_DATA_CHANGED",
+              "lineNumber": 10,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Client E911 data has changed; updated data should be retrieved via "
+                      },
+                      {
+                        "type": "link",
+                        "url": "#apigete911data",
+                        "title": null,
+                        "jsdoc": true,
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "api.getE911Data"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            }
+          ],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "name": "eventTypes",
+          "type": {
+            "type": "NameExpression",
+            "name": "Object"
+          },
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "eventTypes",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.eventTypes"
+        }
+      ]
+    },
+    "path": [
+      {
+        "name": "api",
+        "kind": "module"
+      }
+    ],
+    "namespace": "api"
+  }
+]

@@ -10,25 +10,25 @@ Alongside the WebRTC JS SDK, the library also comes with a Citrix WebRTC SDK. Th
 
 There are a few prerequisite that must be satisfied before we can successfully setup Citrix proxy mode using the Citrix WebRTC SDK. See the following tutorial trails for more information.
 
-1. [Windows Registry Setup](registry)
-2. [Electron IPC](ipc)
+1. [Windows Registry Interactions](Windows%20Registry%20Interactions)
+2. [Electron IPC](Electron%20IPC)
 
 ## `setup` API
 
 To setup the WebRTC JS SDK to run with the Citrix WebRTC SDK, we simply need to call the `setup` API, providing in the initialized WebRTC JS SDK.
 
-```javascript exclude
+```javascript 
 // Import the WebRTC JS SDK.
 import { create } from '@rbbn/citrix-webrtc-sdk/webrtc'
 // Import the Citrix WebRTC SDK
-import { setup, teardown } from '@rbbn/citrix-webrtc-sdk/citrix'
+import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'
 
 // Initialize the WebRTC JS SDK, passing in a configuration object.
-const client = create({...})
+const webrtcClient = create({...})
 
 // Setup Citrix proxy mode
 try {
-  await setup(client)
+  await citrixClient.setup(webrtcClient)
 } catch (error) {
   // See possible errors in section below.
 }
@@ -38,17 +38,12 @@ try {
 
 In order to reverse the above setup and restore the WebRTC JS SDK to normal, we can use the `teardown` API from the Citrix WebRTC SDK.
 
-```javascript exclude
-// Import the WebRTC JS SDK.
-import { create } from '@rbbn/webrtc-js-sdk'
-// Import the Citrix WebRTC SDK
-import { setup, teardown } from '@rbbn/citrix-webrtc-sdk'
-
+```javascript 
 // ...Citrix proxy mode setup code...
 
 // Teardown Citrix proxy mode from the SDK
 try {
-  teardown(client)
+  citrixClient.teardown(client)
 } catch (error) {
   // See possible errors in section below.
 }
@@ -58,11 +53,16 @@ Now, calls will be made and received as regular calls without Citrix proxy mode.
 
 ### API Errors
 
-The `setup` and `teardown` APIs may reject with several errors, as it performs some validation to ensure whether Citrix proxy mode can be setup, or tore down, properly within the WebRTC JS SDK. The `errorCodes` API documentation lists all possible error codes that the APIs may return. In regards to specific error scenarios for the two APIs, refer to the API documentation for the APIs for information on the possible error(s) that can be thrown.
+The `setup` and `teardown` APIs may reject with several errors, as it performs some validation to ensure whether Citrix proxy mode can be setup, or tore down, properly within the WebRTC JS SDK. The `errorCodes` API documentation lists all possible error codes that the APIs may return. In regards to specific error scenarios for the two APIs, refer to the API documentation for the APIs for more information.
 
-Common errors can be easily avoided/handled by ensuring you are in the right state (e.g., no active calls ongoing, and not already previously setup), and by providing correct parameter(s) to the APIs.
+Common errors can be easily avoided and handled by:
 
-Unlikely error scenarios (version mismatch or Citrix SDK errors) for the `setup` may be a bit trickier when trying determine the root cause and resolving it. If the following recommendations fail, contact support for more help with these errors:
+- ensuring you are in the right state (i.e., no active calls ongoing, and not already previously setup)
+- ensuring you are providing correct parameter(s) to the APIs (i.e., a valid WebRTC SDK to the `setup` API).
 
-- Verify you are in the correct environment for Citrix to avoid Citrix SDK errors.
+Unlikely error scenarios, such as version mismatch or Citrix SDK errors, may be a bit trickier to debug and resolve. If the following recommendations fail, contact support for more help with these errors:
+
 - Verify you are not using files from different published versions of the SDKs to avoid version mismatch errors.
+- Verify you are in the correct environment for Citrix to avoid Citrix SDK errors.
+- Attempt to increase the default timeout value of 10 seconds for the Citrix SDK to be loaded during `setup` by providing a higher timeout value to the API. For example: `citrixClient.setup(SDK, 15000)`.
+

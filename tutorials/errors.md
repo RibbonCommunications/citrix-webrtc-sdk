@@ -9,3 +9,6 @@ This event signifies that the Citrix session has disconnected, or CWP has encoun
 Later, when the customer app has re-initialized following a Citrix session reconnect, CWP should be initialized again
 
 -->
+
+# Coming soon...
+
