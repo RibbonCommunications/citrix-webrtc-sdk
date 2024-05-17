@@ -2,13 +2,17 @@
 
 # Windows Registry
 
-When used in [Electron](https://www.electronjs.org/), this SDK must be able to read data from the Windows Registry while the application is running.
+This SDK must be able to read data from the Windows Registry while the application is running.
 
 The data that is read from the Registry is not added automatically by the SDK or other Ribbon software, so it must be added by some other means.
 
 ## The Registry Data
 
-The data that must be read from the Registry is simply the application's name as it exists on disk, such as "myElectronApp.exe". The .exe extension must be included.
+When used in [Electron](https://www.electronjs.org/), the data that must be read from the Registry is simply the application's name as it exists on disk, such as "myElectronApp.exe".
+
+When used in a browser, the data that must be read from the Registry is the name of the browser's executable file, such as "chrome.exe".
+
+The .exe extension must always be included.
 
 ## Registry Path
 

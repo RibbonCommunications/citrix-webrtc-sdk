@@ -10,7 +10,7 @@ Alongside the WebRTC JS SDK, the library also comes with a Citrix WebRTC SDK. Th
 
 There are a few prerequisite that must be satisfied before we can successfully setup Citrix proxy mode using the Citrix WebRTC SDK. See the following tutorial trails for more information.
 
-1. [Windows Registry Interactions](Windows%20Registry%20Interactions)
+1. [Windows Registry](Windows%20Registry)
 2. [Electron IPC](Electron%20IPC)
 
 ## `setup` API
@@ -43,13 +43,13 @@ In order to reverse the above setup and restore the WebRTC JS SDK to normal, we 
 
 // Teardown Citrix proxy mode from the SDK
 try {
-  citrixClient.teardown(client)
+  await citrixClient.teardown()
 } catch (error) {
   // See possible errors in section below.
 }
 ```
 
-Now, calls will be made and received as regular calls without Citrix proxy mode.
+Now, calls will be made and received as regular calls without Citrix proxy mode. Note that the `teardown` API also triggers a device update in the WebRTC JS SDK.
 
 ### API Errors
 
