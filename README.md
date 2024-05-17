@@ -36,9 +36,9 @@ The information about tutorials and documents can be found in the links below
 - No ability to play local audio file (coming soon...)
 
 #### Video calls
-- Video calls do not work correctly when this SDK is used in a browser, so calls should be audio-only
+- When this SDK is used in a browser, video calls do not work correctly and so should be audio-only
 - Video calls may use the wrong camera if more than one present
-- Errors when ending video calls
+- Errors may be visible in the console when ending video calls
 
 #### HID
 - No HID signalling provided by Citrix SDK
