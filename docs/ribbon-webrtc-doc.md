@@ -12,12 +12,12 @@ Initializes the Citrix UC SDK and sets up the WebRTC SDK to run in Citrix proxy 
 #### Parameters
 
 *   `SDK` **[Object][1]** The WebRTC JS SDK.
+*   `timeout` **[number][2]** The time to wait, in milliseconds, for the Citrix SDK to initialize. (optional, default `10000`)
 
 #### Examples
 
 ```javascript
 import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'
-
 
 // Setup proxy mode on WebRTC SDK client by passing in the created client.
 try {
@@ -27,17 +27,20 @@ try {
 }
 ```
 
-*   Throws **[api.CitrixError][2]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode is already setup.
-*   Throws **[api.CitrixError][2]** Will throw an error with code `INVALID_PARAM` if provided SDK parameter is invalid.
-*   Throws **[api.CitrixError][2]** Will throw an error with code `INVALID_STATE` if active calls are ongoing.
-*   Throws **[api.CitrixError][2]** Will throw an error with code `VERSION_MISMATCH` if WebRTC JS SDK and Citrix WebRTC SDK versions mismatch.
-*   Throws **[api.CitrixError][2]** Will throw an error with code `CITRIX_SDK_ERROR` if Citrix UC SDK fails to initialize.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode is already setup.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if provided SDK parameter is invalid.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if active calls are ongoing.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `VERSION_MISMATCH` if WebRTC JS SDK and Citrix WebRTC SDK versions mismatch.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `CITRIX_SDK_ERROR` if Citrix UC SDK fails to initialize.
 
-Returns **[Promise][3]** Resolves upon successful completion
+Returns **[Promise][4]** Resolves upon successful completion
 
 ### teardown
 
 Tears down the Citrix UC SDK and returns the WebRTC JS SDK to non-proxy mode.
+
+This API will also trigger a device update within the WebRTC JS SDK after successfully
+tearing down the proxies.
 
 #### Examples
 
@@ -49,7 +52,9 @@ try {
 }
 ```
 
-*   Throws **[api.CitrixError][2]** Will throw an error if active calls are ongoing.
+*   Throws **[api.CitrixError][3]** Will throw an error if active calls are ongoing.
+
+Returns **[Promise][4]** Resolves upon successful completion.
 
 ### isSetup
 
@@ -65,7 +70,7 @@ citrixClient.teardown()
 log(citrixClient.isSetup())     // false
 ```
 
-Returns **[boolean][4]** Returns true if proxy mode is setup, false otherwise.
+Returns **[boolean][5]** Returns true if proxy mode is setup, false otherwise.
 
 ### getE911Data
 
@@ -75,12 +80,12 @@ Returns **[Object][1]** Client E911 data
 
 ### on
 
-Add an event listener for the specified event type. The event is emitted by the SDK instance.
+Add an event listener for the specified event type.
 
 #### Parameters
 
-*   `type` **[string][5]** The event type for which to add the listener. See [api.eventTypes][6] for possible event types
-*   `listener` **[Function][7]** The listener for the event type. The parameters of the listener depend on the event type.
+*   `type` **[string][6]** The event type for which to add the listener. See [api.eventTypes][7] for possible event types
+*   `listener` **[Function][8]** The listener for the event type. The parameters of the listener depend on the event type.
 
 #### Examples
 
@@ -95,40 +100,83 @@ citrixClient.on('dummy:event', function (params) {
 
 ### off
 
-Removes an event listener for the specified event type. The event is emitted by the SDK instance.
+Removes an event listener for the specified event type.
 
 #### Parameters
 
-*   `type` **[string][5]** The event type for which to remote the listener.
-*   `listener` **[Function][7]** The listener to remove.
+*   `type` **[string][6]** The event type for which to remote the listener.
+*   `listener` **[Function][8]** The listener to remove.
 
 ### subscribe
 
-Adds a global event listener to SDK instance.
+Adds a global event listener to the SDK instance. The listener is a function that will receive all events.
 
 #### Parameters
 
-*   `listener` **[Function][7]** The event listener to add. The parameters are (type, ...args), where args depend on the event type.
+*   `listener` **[Function][8]** The event listener function. The function will be called with parameters (type, ...args), where args depend on the event type.
+
+#### Examples
+
+```javascript
+import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'
+
+// Listen for all events emitted by the SDK.
+function eventHandler(type, ...eventData) {
+   // handle the event data
+}
+citrixClient.subscribe(eventHandler)
+```
 
 ### unsubscribe
 
-Removes a global event listener from SDK instance.
+Removes a global event listener from the SDK instance.
 
 #### Parameters
 
-*   `listener` **[Function][7]** The event listener to remove.
+*   `listener` **[Function][8]** The event listener to remove.
+
+### adjustVideoPosition
+
+Sets an offset by which all video elements will be adjusted. Must be called prior to rendering the video stream to be adjusted.
+
+#### Parameters
+
+*   `xOffset` **[number][2]** The number of pixels to adjust video elements left or right. A negative offset moves elements left, a positive number moves them right.
+*   `yOffset` **[number][2]** The number of pixels to adjust video elements up or down. A negative offset moves elements up, a positive number moves them down.
+
+#### Examples
+
+```javascript
+import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'
+
+try {
+  await citrixClient.setup(webrtcClient)
+
+  // move all video elements right by 40 pixels, up by 200 pixels
+  await citrixClient.adjustVideoPosition(40, -200)
+
+} catch (error) {
+  // See Throws section and api.errorCodes documentation for list of possible errors.
+}
+```
+
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode has not been set up.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if Electron IPC functions have not been setup correctly.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if the provided offset values are not of type 'number'.
+
+Returns **[Promise][4]** Resolves upon successful completion
 
 ### getVersion
 
 Returns the current version of the Citrix WebRTC SDK.
 
-Returns **[string][5]** The Citrix WebRTC SDK version
+Returns **[string][6]** The Citrix WebRTC SDK version
 
 ### errorCodes
 
 Possible error codes for the errors thrown by the Citrix WebRTC SDK.
 
-Each error thrown by the SDK is in the format of [api.CitrixError][8]. These error objects
+Each error thrown by the SDK is in the format of [api.CitrixError][9]. These error objects
 include a code and message. The codes provide a basic hint as to what the error is as per descriptions below.
 The message provides more context about the error encountered.
 
@@ -136,28 +184,28 @@ Type: [Object][1]
 
 #### Properties
 
-*   `CITRIX_SDK_ERROR` **[string][5]** A CITRIX_SDK_ERROR error indicates that the Citrix UC SDK threw an error.
-*   `INVALID_PARAM` **[string][5]** An INVALID_PARAM error indicates that an invalid parameter was passed to the API.
-*   `INVALID_STATE` **[string][5]** An INVALID_STATE error indicates that SDK is in an invalid state proceed with the operation.
-*   `VERSION_MISMATCH` **[string][5]** A VERSION_MISMATCH error indicates that the provided WebRTC SDK version does not match the Citrix WebRTC SDK version.
+*   `CITRIX_SDK_ERROR` **[string][6]** A CITRIX_SDK_ERROR error indicates that the Citrix UC SDK threw an error.
+*   `INVALID_PARAM` **[string][6]** An INVALID_PARAM error indicates that an invalid parameter was passed to the API.
+*   `INVALID_STATE` **[string][6]** An INVALID_STATE error indicates that SDK is in an invalid state to proceed with the operation.
+*   `VERSION_MISMATCH` **[string][6]** A VERSION_MISMATCH error indicates that the provided WebRTC SDK version does not match the Citrix WebRTC SDK version.
 
 #### Examples
 
 ```javascript
-import citrixProxy from '@rbbn/citrix-webrtc-sdk/webrtc.citrix.js'
+import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'
 try {
-  await citrixProxy.setup(rbbnWebRTC)
+  await citrixClient.setup(rbbnWebRTC)
 } catch (error) {
   // Error contains a `code` and `message` property.
   const { code, message } = error
   switch (code) {
-    case citrixProxy.errorCodes.CITRIX_SDK_ERROR:
+    case citrixClient.errorCodes.CITRIX_SDK_ERROR:
       // Handle error originating from the Citrix UC SDK.
-    case citrixProxy.errorCodes.INVALID_PARAM:
+    case citrixClient.errorCodes.INVALID_PARAM:
       // Handle the error with the parameter provided.
-    case citrixProxy.errorCodes.INVALID_STATE:
+    case citrixClient.errorCodes.INVALID_STATE:
       // Handle an SDK not being in the correct state for the API call.
-    case citrixProxy.errorCodes.VERSION_MISMATCH:
+    case citrixClient.errorCodes.VERSION_MISMATCH:
       // Handle the two SDK's not being on the same version.
   }
 }
@@ -171,8 +219,8 @@ Type: [Object][1]
 
 #### Properties
 
-*   `code` **[string][5]** One of [api.errorCodes][9]
-*   `message` **[string][5]** A human-readable message to describe the error.
+*   `code` **[string][6]** One of [api.errorCodes][10]
+*   `message` **[string][6]** A human-readable message to describe the error.
 
 ### eventTypes
 
@@ -182,9 +230,9 @@ Type: [Object][1]
 
 #### Properties
 
-*   `CITRIX_CONNECTED` **[string][5]** Citrix Webrtc redirection initiated successfully
-*   `CITRIX_DISCONNECTED` **[string][5]** Citrix Webrtc redirection failed to start successfully or failed after connection
-*   `CITRIX_E911_DATA_CHANGED` **[string][5]** Client E911 data has changed; updated data should be retrieved via [api.getE911Data][10]
+*   `CITRIX_CONNECTED` **[string][6]** Citrix Webrtc redirection initiated successfully
+*   `CITRIX_DISCONNECTED` **[string][6]** Citrix Webrtc redirection failed to start successfully or failed after connection
+*   `CITRIX_E911_DATA_CHANGED` **[string][6]** Client E911 data has changed; updated data should be retrieved via [api.getE911Data][11]
 
 #### Examples
 
@@ -198,20 +246,22 @@ citrixClient.on(citrixClient.eventTypes.CITRIX_E911_DATA_CHANGED, data => {
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[2]: #apicitrixerror
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[3]: #apicitrixerror
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[6]: #apieventtypes
+[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[7]: #apieventtypes
 
-[8]: #apicitrixerror
+[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[9]: #apierrorcodes
+[9]: #apicitrixerror
 
-[10]: #apigete911data
+[10]: #apierrorcodes
+
+[11]: #apigete911data

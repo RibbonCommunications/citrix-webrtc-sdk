@@ -31,22 +31,22 @@
     ],
     "loc": {
       "start": {
-        "line": 10,
+        "line": 11,
         "column": 0
       },
       "end": {
-        "line": 16,
+        "line": 17,
         "column": 3
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 23,
+          "line": 24,
           "column": 0
         },
         "end": {
-          "line": 257,
+          "line": 350,
           "column": 1
         }
       },
@@ -104,15 +104,20 @@
               "lineNumber": 5
             },
             {
+              "title": "async",
+              "description": null,
+              "lineNumber": 6
+            },
+            {
               "title": "method",
               "description": null,
-              "lineNumber": 6,
+              "lineNumber": 7,
               "name": "setup"
             },
             {
               "title": "param",
               "description": "The WebRTC JS SDK.",
-              "lineNumber": 7,
+              "lineNumber": 8,
               "type": {
                 "type": "NameExpression",
                 "name": "Object"
@@ -120,26 +125,22 @@
               "name": "SDK"
             },
             {
-              "title": "throws",
-              "description": "Will throw an error with code `INVALID_STATE` if Citrix proxy mode is already setup.",
-              "lineNumber": 8,
-              "type": {
-                "type": "NameExpression",
-                "name": "api.CitrixError"
-              }
-            },
-            {
-              "title": "throws",
-              "description": "Will throw an error with code `INVALID_PARAM` if provided SDK parameter is invalid.",
+              "title": "param",
+              "description": "The time to wait, in milliseconds, for the Citrix SDK to initialize.",
               "lineNumber": 9,
               "type": {
-                "type": "NameExpression",
-                "name": "api.CitrixError"
-              }
+                "type": "OptionalType",
+                "expression": {
+                  "type": "NameExpression",
+                  "name": "number"
+                }
+              },
+              "name": "timeout",
+              "default": "10000"
             },
             {
               "title": "throws",
-              "description": "Will throw an error with code `INVALID_STATE` if active calls are ongoing.",
+              "description": "Will throw an error with code `INVALID_STATE` if Citrix proxy mode is already setup.",
               "lineNumber": 10,
               "type": {
                 "type": "NameExpression",
@@ -148,7 +149,7 @@
             },
             {
               "title": "throws",
-              "description": "Will throw an error with code `VERSION_MISMATCH` if WebRTC JS SDK and Citrix WebRTC SDK versions mismatch.",
+              "description": "Will throw an error with code `INVALID_PARAM` if provided SDK parameter is invalid.",
               "lineNumber": 11,
               "type": {
                 "type": "NameExpression",
@@ -157,8 +158,26 @@
             },
             {
               "title": "throws",
-              "description": "Will throw an error with code `CITRIX_SDK_ERROR` if Citrix UC SDK fails to initialize.",
+              "description": "Will throw an error with code `INVALID_STATE` if active calls are ongoing.",
               "lineNumber": 12,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `VERSION_MISMATCH` if WebRTC JS SDK and Citrix WebRTC SDK versions mismatch.",
+              "lineNumber": 13,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `CITRIX_SDK_ERROR` if Citrix UC SDK fails to initialize.",
+              "lineNumber": 14,
               "type": {
                 "type": "NameExpression",
                 "name": "api.CitrixError"
@@ -167,7 +186,7 @@
             {
               "title": "returns",
               "description": "Resolves upon successful completion",
-              "lineNumber": 13,
+              "lineNumber": 15,
               "type": {
                 "type": "NameExpression",
                 "name": "Promise"
@@ -175,28 +194,28 @@
             },
             {
               "title": "example",
-              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\n\n// Setup proxy mode on WebRTC SDK client by passing in the created client.\ntry {\n  await citrixClient.setup(webrtcClient)\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}",
-              "lineNumber": 14
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\n// Setup proxy mode on WebRTC SDK client by passing in the created client.\ntry {\n  await citrixClient.setup(webrtcClient)\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}",
+              "lineNumber": 16
             }
           ],
           "loc": {
             "start": {
-              "line": 24,
+              "line": 25,
               "column": 2
             },
             "end": {
-              "line": 48,
+              "line": 50,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 49,
+                "line": 51,
                 "column": 2
               },
               "end": {
-                "line": 112,
+                "line": 118,
                 "column": 3
               }
             },
@@ -205,7 +224,7 @@
           "augments": [],
           "examples": [
             {
-              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\n\n// Setup proxy mode on WebRTC SDK client by passing in the created client.\ntry {\n  await citrixClient.setup(webrtcClient)\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}"
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\n// Setup proxy mode on WebRTC SDK client by passing in the created client.\ntry {\n  await citrixClient.setup(webrtcClient)\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}"
             }
           ],
           "implements": [],
@@ -213,7 +232,7 @@
             {
               "title": "param",
               "name": "SDK",
-              "lineNumber": 7,
+              "lineNumber": 8,
               "description": {
                 "type": "root",
                 "children": [
@@ -232,6 +251,30 @@
                 "type": "NameExpression",
                 "name": "Object"
               }
+            },
+            {
+              "title": "param",
+              "name": "timeout",
+              "lineNumber": 9,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The time to wait, in milliseconds, for the Citrix SDK to initialize."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              },
+              "default": "10000"
             }
           ],
           "properties": [],
@@ -406,6 +449,7 @@
           "access": "public",
           "scope": "static",
           "memberof": "api",
+          "async": true,
           "kind": "function",
           "name": "setup",
           "members": {
@@ -440,6 +484,15 @@
                     "value": "Tears down the Citrix UC SDK and returns the WebRTC JS SDK to non-proxy mode."
                   }
                 ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "This API will also trigger a device update within the WebRTC JS SDK after successfully\ntearing down the proxies."
+                  }
+                ]
               }
             ]
           },
@@ -447,58 +500,72 @@
             {
               "title": "public",
               "description": null,
-              "lineNumber": 3,
+              "lineNumber": 6,
               "type": null
             },
             {
               "title": "static",
               "description": null,
-              "lineNumber": 4
+              "lineNumber": 7
             },
             {
               "title": "memberof",
               "description": "api",
-              "lineNumber": 5
+              "lineNumber": 8
+            },
+            {
+              "title": "async",
+              "description": null,
+              "lineNumber": 9
             },
             {
               "title": "method",
               "description": null,
-              "lineNumber": 6,
+              "lineNumber": 10,
               "name": "teardown"
             },
             {
               "title": "throws",
               "description": "Will throw an error if active calls are ongoing.",
-              "lineNumber": 7,
+              "lineNumber": 11,
               "type": {
                 "type": "NameExpression",
                 "name": "api.CitrixError"
               }
             },
             {
+              "title": "returns",
+              "description": "Resolves upon successful completion.",
+              "lineNumber": 12,
+              "type": {
+                "type": "NameExpression",
+                "name": "Promise"
+              }
+            },
+            {
               "title": "example",
               "description": "try {\n  citrixClient.teardown()\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}",
-              "lineNumber": 8
+              "lineNumber": 13
             }
           ],
           "loc": {
             "start": {
-              "line": 114,
+              "line": 120,
               "column": 2
             },
             "end": {
-              "line": 128,
+              "line": 139,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 129,
+                "line": 140,
                 "column": 2
               },
               "end": {
-                "line": 153,
+                "line": 175,
                 "column": 3
               }
             },
@@ -513,7 +580,29 @@
           "implements": [],
           "params": [],
           "properties": [],
-          "returns": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Resolves upon successful completion."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "Promise"
+              }
+            }
+          ],
           "sees": [],
           "throws": [
             {
@@ -542,6 +631,7 @@
           "access": "public",
           "scope": "static",
           "memberof": "api",
+          "async": true,
           "kind": "function",
           "name": "teardown",
           "members": {
@@ -619,22 +709,22 @@
           ],
           "loc": {
             "start": {
-              "line": 155,
+              "line": 177,
               "column": 2
             },
             "end": {
-              "line": 169,
+              "line": 191,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 170,
+                "line": 192,
                 "column": 2
               },
               "end": {
-                "line": 172,
+                "line": 194,
                 "column": 3
               }
             },
@@ -751,22 +841,22 @@
           ],
           "loc": {
             "start": {
-              "line": 174,
+              "line": 196,
               "column": 2
             },
             "end": {
-              "line": 182,
+              "line": 204,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 183,
+                "line": 205,
                 "column": 2
               },
               "end": {
-                "line": 185,
+                "line": 207,
                 "column": 3
               }
             },
@@ -838,7 +928,7 @@
                 "children": [
                   {
                     "type": "text",
-                    "value": "Add an event listener for the specified event type. The event is emitted by the SDK instance."
+                    "value": "Add an event listener for the specified event type."
                   }
                 ]
               }
@@ -890,22 +980,22 @@
           ],
           "loc": {
             "start": {
-              "line": 187,
+              "line": 209,
               "column": 2
             },
             "end": {
-              "line": 202,
+              "line": 224,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 203,
+                "line": 225,
                 "column": 2
               },
               "end": {
-                "line": 205,
+                "line": 227,
                 "column": 3
               }
             },
@@ -1020,7 +1110,7 @@
                 "children": [
                   {
                     "type": "text",
-                    "value": "Removes an event listener for the specified event type. The event is emitted by the SDK instance."
+                    "value": "Removes an event listener for the specified event type."
                   }
                 ]
               }
@@ -1067,22 +1157,22 @@
           ],
           "loc": {
             "start": {
-              "line": 207,
+              "line": 229,
               "column": 2
             },
             "end": {
-              "line": 215,
+              "line": 237,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 216,
+                "line": 238,
                 "column": 2
               },
               "end": {
-                "line": 218,
+                "line": 240,
                 "column": 3
               }
             },
@@ -1177,7 +1267,7 @@
                 "children": [
                   {
                     "type": "text",
-                    "value": "Adds a global event listener to SDK instance."
+                    "value": "Adds a global event listener to the SDK instance. The listener is a function that will receive all events."
                   }
                 ]
               }
@@ -1203,40 +1293,49 @@
             },
             {
               "title": "param",
-              "description": "The event listener to add. The parameters are (type, ...args), where args depend on the event type.",
+              "description": "The event listener function. The function will be called with parameters (type, ...args), where args depend on the event type.",
               "lineNumber": 6,
               "type": {
                 "type": "NameExpression",
                 "name": "Function"
               },
               "name": "listener"
+            },
+            {
+              "title": "example",
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\n// Listen for all events emitted by the SDK.\nfunction eventHandler(type, ...eventData) {\n   // handle the event data\n}\ncitrixClient.subscribe(eventHandler)",
+              "lineNumber": 7
             }
           ],
           "loc": {
             "start": {
-              "line": 220,
+              "line": 242,
               "column": 2
             },
             "end": {
-              "line": 227,
+              "line": 257,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 228,
+                "line": 258,
                 "column": 2
               },
               "end": {
-                "line": 230,
+                "line": 260,
                 "column": 3
               }
             },
             "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
           },
           "augments": [],
-          "examples": [],
+          "examples": [
+            {
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\n// Listen for all events emitted by the SDK.\nfunction eventHandler(type, ...eventData) {\n   // handle the event data\n}\ncitrixClient.subscribe(eventHandler)"
+            }
+          ],
           "implements": [],
           "params": [
             {
@@ -1251,7 +1350,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "value": "The event listener to add. The parameters are (type, ...args), where args depend on the event type."
+                        "value": "The event listener function. The function will be called with parameters (type, ...args), where args depend on the event type."
                       }
                     ]
                   }
@@ -1301,7 +1400,7 @@
                 "children": [
                   {
                     "type": "text",
-                    "value": "Removes a global event listener from SDK instance."
+                    "value": "Removes a global event listener from the SDK instance."
                   }
                 ]
               }
@@ -1338,22 +1437,22 @@
           ],
           "loc": {
             "start": {
-              "line": 232,
+              "line": 262,
               "column": 2
             },
             "end": {
-              "line": 239,
+              "line": 269,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 240,
+                "line": 270,
                 "column": 2
               },
               "end": {
-                "line": 242,
+                "line": 272,
                 "column": 3
               }
             },
@@ -1415,6 +1514,328 @@
             }
           ],
           "namespace": "apiunsubscribe"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Sets an offset by which all video elements will be adjusted. Must be called prior to rendering the video stream to be adjusted."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 4
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 5
+            },
+            {
+              "title": "async",
+              "description": null,
+              "lineNumber": 6
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 7,
+              "name": "adjustVideoPosition"
+            },
+            {
+              "title": "param",
+              "description": "The number of pixels to adjust video elements left or right. A negative offset moves elements left, a positive number moves them right.",
+              "lineNumber": 8,
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              },
+              "name": "xOffset"
+            },
+            {
+              "title": "param",
+              "description": "The number of pixels to adjust video elements up or down. A negative offset moves elements up, a positive number moves them down.",
+              "lineNumber": 9,
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              },
+              "name": "yOffset"
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_STATE` if Citrix proxy mode has not been set up.",
+              "lineNumber": 10,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_STATE` if Electron IPC functions have not been setup correctly.",
+              "lineNumber": 11,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_PARAM` if the provided offset values are not of type 'number'.",
+              "lineNumber": 12,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "returns",
+              "description": "Resolves upon successful completion",
+              "lineNumber": 13,
+              "type": {
+                "type": "NameExpression",
+                "name": "Promise"
+              }
+            },
+            {
+              "title": "example",
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\ntry {\n  await citrixClient.setup(webrtcClient)\n\n  // move all video elements right by 40 pixels, up by 200 pixels\n  await citrixClient.adjustVideoPosition(40, -200)\n\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}",
+              "lineNumber": 14
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 274,
+              "column": 2
+            },
+            "end": {
+              "line": 300,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 301,
+                "column": 2
+              },
+              "end": {
+                "line": 334,
+                "column": 3
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/index.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\n\ntry {\n  await citrixClient.setup(webrtcClient)\n\n  // move all video elements right by 40 pixels, up by 200 pixels\n  await citrixClient.adjustVideoPosition(40, -200)\n\n} catch (error) {\n  // See Throws section and api.errorCodes documentation for list of possible errors.\n}"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "xOffset",
+              "lineNumber": 8,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The number of pixels to adjust video elements left or right. A negative offset moves elements left, a positive number moves them right."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              }
+            },
+            {
+              "title": "param",
+              "name": "yOffset",
+              "lineNumber": 9,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The number of pixels to adjust video elements up or down. A negative offset moves elements up, a positive number moves them down."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Resolves upon successful completion"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "Promise"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_STATE"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if Citrix proxy mode has not been set up."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_STATE"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if Electron IPC functions have not been setup correctly."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_PARAM"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if the provided offset values are not of type 'number'."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            }
+          ],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "async": true,
+          "kind": "function",
+          "name": "adjustVideoPosition",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "adjustVideoPosition",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.adjustVideoPosition"
         },
         {
           "description": {
@@ -1638,7 +2059,7 @@
             },
             {
               "title": "property",
-              "description": "An INVALID_STATE error indicates that SDK is in an invalid state proceed with the operation.",
+              "description": "An INVALID_STATE error indicates that SDK is in an invalid state to proceed with the operation.",
               "lineNumber": 14,
               "type": {
                 "type": "NameExpression",
@@ -1658,7 +2079,7 @@
             },
             {
               "title": "example",
-              "description": "import citrixProxy from '@rbbn/citrix-webrtc-sdk/webrtc.citrix.js'\ntry {\n  await citrixProxy.setup(rbbnWebRTC)\n} catch (error) {\n  // Error contains a `code` and `message` property.\n  const { code, message } = error\n  switch (code) {\n    case citrixProxy.errorCodes.CITRIX_SDK_ERROR:\n      // Handle error originating from the Citrix UC SDK.\n    case citrixProxy.errorCodes.INVALID_PARAM:\n      // Handle the error with the parameter provided.\n    case citrixProxy.errorCodes.INVALID_STATE:\n      // Handle an SDK not being in the correct state for the API call.\n    case citrixProxy.errorCodes.VERSION_MISMATCH:\n      // Handle the two SDK's not being on the same version.\n  }\n}",
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\ntry {\n  await citrixClient.setup(rbbnWebRTC)\n} catch (error) {\n  // Error contains a `code` and `message` property.\n  const { code, message } = error\n  switch (code) {\n    case citrixClient.errorCodes.CITRIX_SDK_ERROR:\n      // Handle error originating from the Citrix UC SDK.\n    case citrixClient.errorCodes.INVALID_PARAM:\n      // Handle the error with the parameter provided.\n    case citrixClient.errorCodes.INVALID_STATE:\n      // Handle an SDK not being in the correct state for the API call.\n    case citrixClient.errorCodes.VERSION_MISMATCH:\n      // Handle the two SDK's not being on the same version.\n  }\n}",
               "lineNumber": 16
             }
           ],
@@ -1688,7 +2109,7 @@
           "augments": [],
           "examples": [
             {
-              "description": "import citrixProxy from '@rbbn/citrix-webrtc-sdk/webrtc.citrix.js'\ntry {\n  await citrixProxy.setup(rbbnWebRTC)\n} catch (error) {\n  // Error contains a `code` and `message` property.\n  const { code, message } = error\n  switch (code) {\n    case citrixProxy.errorCodes.CITRIX_SDK_ERROR:\n      // Handle error originating from the Citrix UC SDK.\n    case citrixProxy.errorCodes.INVALID_PARAM:\n      // Handle the error with the parameter provided.\n    case citrixProxy.errorCodes.INVALID_STATE:\n      // Handle an SDK not being in the correct state for the API call.\n    case citrixProxy.errorCodes.VERSION_MISMATCH:\n      // Handle the two SDK's not being on the same version.\n  }\n}"
+              "description": "import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'\ntry {\n  await citrixClient.setup(rbbnWebRTC)\n} catch (error) {\n  // Error contains a `code` and `message` property.\n  const { code, message } = error\n  switch (code) {\n    case citrixClient.errorCodes.CITRIX_SDK_ERROR:\n      // Handle error originating from the Citrix UC SDK.\n    case citrixClient.errorCodes.INVALID_PARAM:\n      // Handle the error with the parameter provided.\n    case citrixClient.errorCodes.INVALID_STATE:\n      // Handle an SDK not being in the correct state for the API call.\n    case citrixClient.errorCodes.VERSION_MISMATCH:\n      // Handle the two SDK's not being on the same version.\n  }\n}"
             }
           ],
           "implements": [],
@@ -1752,7 +2173,7 @@
                     "children": [
                       {
                         "type": "text",
-                        "value": "An INVALID_STATE error indicates that SDK is in an invalid state proceed with the operation."
+                        "value": "An INVALID_STATE error indicates that SDK is in an invalid state to proceed with the operation."
                       }
                     ]
                   }

@@ -4,6 +4,8 @@
 
 When used in [Electron](https://www.electronjs.org/), this SDK must communicate between Electron's [Renderer process](https://www.electronjs.org/docs/latest/glossary#renderer-process) where it runs and the [Main process](https://www.electronjs.org/docs/latest/glossary#main-process).
 
+This Tutorial is not applicable when the SDK is used in a browser.
+
 Electron provides APIs to enable this interprocess communication (aka IPC) and this SDK includes JavaScript modules that implement all IPC communication that it requires. It's recommended that you use the modules provided by this SDK in your app.
 
 If Electron's security features such as [contextIsolation](https://www.electronjs.org/docs/latest/tutorial/security#3-enable-context-isolation) are enabled in your app, they may prevent you from using the modules provided. In that case, the raw code is provided to copy and paste into your app.

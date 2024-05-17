@@ -87,6 +87,12 @@
                             </a></li>
                           
                             <li><a
+                              href='#apiadjustvideoposition'
+                              class='regular pre-open'>
+                              <span style="color:green">ⓕ</span> .adjustVideoPosition
+                            </a></li>
+                          
+                            <li><a
                               href='#apigetversion'
                               class='regular pre-open'>
                               <span style="color:green">ⓕ</span> .getVersion
@@ -259,7 +265,7 @@ It contains various top-level functions that pertain to Citrix WebRTC SDK global
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>setup(SDK)</span>
+            <span class='code strong strong truncate'>setup(SDK, timeout)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -270,7 +276,7 @@ It contains various top-level functions that pertain to Citrix WebRTC SDK global
   <p>Initializes the Citrix UC SDK and sets up the WebRTC SDK to run in Citrix proxy mode.</p>
 
 
-  <div class='pre p1 fill-light mt0'>setup(SDK: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
+  <div class='pre p1 fill-light mt0'>setup(SDK: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, timeout: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
   
   
 
@@ -289,6 +295,16 @@ It contains various top-level functions that pertain to Citrix WebRTC SDK global
           <div>
             <span class='code bold'>SDK</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    The WebRTC JS SDK.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>timeout</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
+            = <code>10000</code>)</code>
+	    The time to wait, in milliseconds, for the Citrix SDK to initialize.
 
           </div>
           
@@ -349,7 +365,6 @@ It contains various top-level functions that pertain to Citrix WebRTC SDK global
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> citrixClient <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rbbn/citrix-webrtc-sdk/citrix&#x27;</span>
 
-
 <span class="hljs-comment">// Setup proxy mode on WebRTC SDK client by passing in the created client.</span>
 <span class="hljs-keyword">try</span> {
   <span class="hljs-keyword">await</span> citrixClient.setup(webrtcClient)
@@ -382,23 +397,35 @@ It contains various top-level functions that pertain to Citrix WebRTC SDK global
   
 
   <p>Tears down the Citrix UC SDK and returns the WebRTC JS SDK to non-proxy mode.</p>
+<p>This API will also trigger a device update within the WebRTC JS SDK after successfully
+tearing down the proxies.</p>
 
 
-  <div class='pre p1 fill-light mt0'>teardown()</div>
-  
-  
-
-  
-  
-  
-  
+  <div class='pre p1 fill-light mt0'>teardown(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
   
   
 
   
+  
+  
+  
+  
+  
 
   
 
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Returns</div>
+    
+      <div>
+        <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
+          Resolves upon successful completion.
+
+        
+      </div>
+    
   
 
   
@@ -567,7 +594,7 @@ log(citrixClient.isSetup())     <span class="hljs-comment">// false</span></pre>
 
   
 
-  <p>Add an event listener for the specified event type. The event is emitted by the SDK instance.</p>
+  <p>Add an event listener for the specified event type.</p>
 
 
   <div class='pre p1 fill-light mt0'>on(type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, listener: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
@@ -649,7 +676,7 @@ citrixClient.on(<span class="hljs-string">&#x27;dummy:event&#x27;</span>, <span 
 
   
 
-  <p>Removes an event listener for the specified event type. The event is emitted by the SDK instance.</p>
+  <p>Removes an event listener for the specified event type.</p>
 
 
   <div class='pre p1 fill-light mt0'>off(type: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, listener: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
@@ -718,7 +745,7 @@ citrixClient.on(<span class="hljs-string">&#x27;dummy:event&#x27;</span>, <span 
 
   
 
-  <p>Adds a global event listener to SDK instance.</p>
+  <p>Adds a global event listener to the SDK instance. The listener is a function that will receive all events.</p>
 
 
   <div class='pre p1 fill-light mt0'>subscribe(listener: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
@@ -739,7 +766,7 @@ citrixClient.on(<span class="hljs-string">&#x27;dummy:event&#x27;</span>, <span 
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>listener</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    The event listener to add. The parameters are (type, ...args), where args depend on the event type.
+	    The event listener function. The function will be called with parameters (type, ...args), where args depend on the event type.
 
           </div>
           
@@ -754,6 +781,18 @@ citrixClient.on(<span class="hljs-string">&#x27;dummy:event&#x27;</span>, <span 
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> citrixClient <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rbbn/citrix-webrtc-sdk/citrix&#x27;</span>
+
+<span class="hljs-comment">// Listen for all events emitted by the SDK.</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">eventHandler</span>(<span class="hljs-params">type, ...eventData</span>) </span>{
+   <span class="hljs-comment">// handle the event data</span>
+}
+citrixClient.subscribe(eventHandler)</pre>
+    
   
 
   
@@ -778,7 +817,7 @@ citrixClient.on(<span class="hljs-string">&#x27;dummy:event&#x27;</span>, <span 
 
   
 
-  <p>Removes a global event listener from SDK instance.</p>
+  <p>Removes a global event listener from the SDK instance.</p>
 
 
   <div class='pre p1 fill-light mt0'>unsubscribe(listener: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
@@ -814,6 +853,121 @@ citrixClient.on(<span class="hljs-string">&#x27;dummy:event&#x27;</span>, <span 
 
   
 
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='apiadjustvideoposition'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>adjustVideoPosition(xOffset, yOffset)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Sets an offset by which all video elements will be adjusted. Must be called prior to rendering the video stream to be adjusted.</p>
+
+
+  <div class='pre p1 fill-light mt0'>adjustVideoPosition(xOffset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, yOffset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>xOffset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The number of pixels to adjust video elements left or right. A negative offset moves elements left, a positive number moves them right.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>yOffset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The number of pixels to adjust video elements up or down. A negative offset moves elements up, a positive number moves them down.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Returns</div>
+    
+      <div>
+        <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
+          Resolves upon successful completion
+
+        
+      </div>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
+<code>INVALID_STATE</code>
+ if Citrix proxy mode has not been set up.
+</li>
+      
+        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
+<code>INVALID_STATE</code>
+ if Electron IPC functions have not been setup correctly.
+</li>
+      
+        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
+<code>INVALID_PARAM</code>
+ if the provided offset values are not of type 'number'.
+</li>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> citrixClient <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rbbn/citrix-webrtc-sdk/citrix&#x27;</span>
+
+<span class="hljs-keyword">try</span> {
+  <span class="hljs-keyword">await</span> citrixClient.setup(webrtcClient)
+
+  <span class="hljs-comment">// move all video elements right by 40 pixels, up by 200 pixels</span>
+  <span class="hljs-keyword">await</span> citrixClient.adjustVideoPosition(<span class="hljs-number">40</span>, -<span class="hljs-number">200</span>)
+
+} <span class="hljs-keyword">catch</span> (error) {
+  <span class="hljs-comment">// See Throws section and api.errorCodes documentation for list of possible errors.</span>
+}</pre>
+    
   
 
   
@@ -961,7 +1115,7 @@ The message provides more context about the error encountered.</p>
           
 
           
-             : An INVALID_STATE error indicates that SDK is in an invalid state proceed with the operation.
+             : An INVALID_STATE error indicates that SDK is in an invalid state to proceed with the operation.
 
           
           
@@ -993,20 +1147,20 @@ The message provides more context about the error encountered.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> citrixProxy <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rbbn/citrix-webrtc-sdk/webrtc.citrix.js&#x27;</span>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> citrixClient <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rbbn/citrix-webrtc-sdk/citrix&#x27;</span>
 <span class="hljs-keyword">try</span> {
-  <span class="hljs-keyword">await</span> citrixProxy.setup(rbbnWebRTC)
+  <span class="hljs-keyword">await</span> citrixClient.setup(rbbnWebRTC)
 } <span class="hljs-keyword">catch</span> (error) {
   <span class="hljs-comment">// Error contains a `code` and `message` property.</span>
   <span class="hljs-keyword">const</span> { code, message } = error
   <span class="hljs-keyword">switch</span> (code) {
-    <span class="hljs-keyword">case</span> citrixProxy.errorCodes.CITRIX_SDK_ERROR:
+    <span class="hljs-keyword">case</span> citrixClient.errorCodes.CITRIX_SDK_ERROR:
       <span class="hljs-comment">// Handle error originating from the Citrix UC SDK.</span>
-    <span class="hljs-keyword">case</span> citrixProxy.errorCodes.INVALID_PARAM:
+    <span class="hljs-keyword">case</span> citrixClient.errorCodes.INVALID_PARAM:
       <span class="hljs-comment">// Handle the error with the parameter provided.</span>
-    <span class="hljs-keyword">case</span> citrixProxy.errorCodes.INVALID_STATE:
+    <span class="hljs-keyword">case</span> citrixClient.errorCodes.INVALID_STATE:
       <span class="hljs-comment">// Handle an SDK not being in the correct state for the API call.</span>
-    <span class="hljs-keyword">case</span> citrixProxy.errorCodes.VERSION_MISMATCH:
+    <span class="hljs-keyword">case</span> citrixClient.errorCodes.VERSION_MISMATCH:
       <span class="hljs-comment">// Handle the two SDK&#x27;s not being on the same version.</span>
   }
 }</pre>
