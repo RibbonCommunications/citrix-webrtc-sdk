@@ -36,7 +36,7 @@ However, **note that "elevated" (i.e. Administrator) Windows priviledges are req
 
 ### NSIS
 
-A sample NSIS script is provided [here](link tbd).
+A sample NSIS script is provided [here](./registry/installer.nsh).
 
 ### Formatting the application name for use in NSIS
 
@@ -83,4 +83,3 @@ For an application built using electron-builder, your NSIS script could be inclu
 ```
 
 Note that after modifying the Registry, the PC must be restarted for the changes to take effect.
-

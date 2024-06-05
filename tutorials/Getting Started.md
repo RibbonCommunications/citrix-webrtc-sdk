@@ -17,7 +17,7 @@ There are a few prerequisite that must be satisfied before we can successfully s
 
 To setup the WebRTC JS SDK to run with the Citrix WebRTC SDK, we simply need to call the `setup` API, providing in the initialized WebRTC JS SDK.
 
-```javascript 
+```javascript exclude
 // Import the WebRTC JS SDK.
 import { create } from '@rbbn/citrix-webrtc-sdk/webrtc'
 // Import the Citrix WebRTC SDK
@@ -38,7 +38,7 @@ try {
 
 In order to reverse the above setup and restore the WebRTC JS SDK to normal, we can use the `teardown` API from the Citrix WebRTC SDK.
 
-```javascript 
+```javascript exclude
 // ...Citrix proxy mode setup code...
 
 // Teardown Citrix proxy mode from the SDK
@@ -65,4 +65,3 @@ Unlikely error scenarios, such as version mismatch or Citrix SDK errors, may be 
 - Verify you are not using files from different published versions of the SDKs to avoid version mismatch errors.
 - Verify you are in the correct environment for Citrix to avoid Citrix SDK errors.
 - Attempt to increase the default timeout value of 10 seconds for the Citrix SDK to be loaded during `setup` by providing a higher timeout value to the API. For example: `citrixClient.setup(SDK, 15000)`.
-

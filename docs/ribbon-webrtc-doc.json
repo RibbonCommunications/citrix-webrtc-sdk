@@ -31,22 +31,22 @@
     ],
     "loc": {
       "start": {
-        "line": 11,
+        "line": 12,
         "column": 0
       },
       "end": {
-        "line": 17,
+        "line": 18,
         "column": 3
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 0
         },
         "end": {
-          "line": 350,
+          "line": 354,
           "column": 1
         }
       },
@@ -200,22 +200,22 @@
           ],
           "loc": {
             "start": {
-              "line": 25,
+              "line": 26,
               "column": 2
             },
             "end": {
-              "line": 50,
+              "line": 51,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 51,
+                "line": 52,
                 "column": 2
               },
               "end": {
-                "line": 118,
+                "line": 120,
                 "column": 3
               }
             },
@@ -550,22 +550,22 @@
           ],
           "loc": {
             "start": {
-              "line": 120,
+              "line": 122,
               "column": 2
             },
             "end": {
-              "line": 139,
+              "line": 141,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 140,
+                "line": 142,
                 "column": 2
               },
               "end": {
-                "line": 175,
+                "line": 177,
                 "column": 3
               }
             },
@@ -709,22 +709,22 @@
           ],
           "loc": {
             "start": {
-              "line": 177,
+              "line": 179,
               "column": 2
             },
             "end": {
-              "line": 191,
+              "line": 193,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 192,
+                "line": 194,
                 "column": 2
               },
               "end": {
-                "line": 194,
+                "line": 196,
                 "column": 3
               }
             },
@@ -841,22 +841,22 @@
           ],
           "loc": {
             "start": {
-              "line": 196,
+              "line": 198,
               "column": 2
             },
             "end": {
-              "line": 204,
+              "line": 206,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 205,
+                "line": 207,
                 "column": 2
               },
               "end": {
-                "line": 207,
+                "line": 209,
                 "column": 3
               }
             },
@@ -980,22 +980,22 @@
           ],
           "loc": {
             "start": {
-              "line": 209,
+              "line": 211,
               "column": 2
             },
             "end": {
-              "line": 224,
+              "line": 226,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 225,
+                "line": 227,
                 "column": 2
               },
               "end": {
-                "line": 227,
+                "line": 229,
                 "column": 3
               }
             },
@@ -1157,22 +1157,22 @@
           ],
           "loc": {
             "start": {
-              "line": 229,
+              "line": 231,
               "column": 2
             },
             "end": {
-              "line": 237,
+              "line": 239,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 238,
+                "line": 240,
                 "column": 2
               },
               "end": {
-                "line": 240,
+                "line": 242,
                 "column": 3
               }
             },
@@ -1309,22 +1309,22 @@
           ],
           "loc": {
             "start": {
-              "line": 242,
+              "line": 244,
               "column": 2
             },
             "end": {
-              "line": 257,
+              "line": 259,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 258,
+                "line": 260,
                 "column": 2
               },
               "end": {
-                "line": 260,
+                "line": 262,
                 "column": 3
               }
             },
@@ -1437,22 +1437,22 @@
           ],
           "loc": {
             "start": {
-              "line": 262,
+              "line": 264,
               "column": 2
             },
             "end": {
-              "line": 269,
+              "line": 271,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 270,
+                "line": 272,
                 "column": 2
               },
               "end": {
-                "line": 272,
+                "line": 274,
                 "column": 3
               }
             },
@@ -1622,22 +1622,22 @@
           ],
           "loc": {
             "start": {
-              "line": 274,
+              "line": 276,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 302,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 301,
+                "line": 303,
                 "column": 2
               },
               "end": {
-                "line": 334,
+                "line": 336,
                 "column": 3
               }
             },
@@ -1964,6 +1964,742 @@
             }
           ],
           "namespace": "api.getVersion"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Plays an audio file specified by a URL."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 4
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 5
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 6,
+              "name": "playAudio"
+            },
+            {
+              "title": "param",
+              "description": "A simple text identifier for your app, e.g. 'dtmfFeedback'. Should be unique for the URL and speaker combination.",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "audioId"
+            },
+            {
+              "title": "param",
+              "description": "The URL to the audio file to be played.",
+              "lineNumber": 8,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "url"
+            },
+            {
+              "title": "param",
+              "description": "The deviceId of the speaker the audio should be played from.",
+              "lineNumber": 9,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "speakerId"
+            },
+            {
+              "title": "param",
+              "description": "Length of time to play the audio file, in milliseconds.",
+              "lineNumber": 10,
+              "type": {
+                "type": "OptionalType",
+                "expression": {
+                  "type": "NameExpression",
+                  "name": "number"
+                }
+              },
+              "name": "duration"
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_STATE` if Citrix proxy mode has not been setup.",
+              "lineNumber": 11,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_PARAM` if an audioId is not provided.",
+              "lineNumber": 12,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_PARAM` if the url parameter is not valid.",
+              "lineNumber": 13,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_PARAM` if the value of speakerId does not match one of the devices returned by the WebRTC JS SDK `media.getDevices().speaker`.",
+              "lineNumber": 14,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "throws",
+              "description": "Will throw an error with code `INVALID_PARAM` if the value of duration is invalid.\n\nUsage notes:\n- If duration is specified and is longer than the length of specified audio file, playback will loop until `duration` expires.\n- If duration is specified and is shorter than the length of specified audio file, playback will be truncated when `duration` expires.\n- Therefore, when specifying duration, it is helpful to know the target file's playback length.\n- If duration is not specified, the audio file will be played in its entirety once.\n- Playback can be stopped at any time via the {@link api.stopAudio} API regardless of whether a duration is specified or not.\n- Calling this API a second time for a given audioId will stop any previous ongoing playback for the same audioId",
+              "lineNumber": 15,
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const beep = 'https://example.server.com/audio/shortbeep.wav'\nconst incomingRingtone = 'https://example.server.com/audio/ringing.wav'\nconst speaker = webrtcClient.media.getDevices().speaker[0].deviceId\n\ncitrixClient.playAudio('dtmfFeedback', beep, speaker) // play shortbeep.wav once\ncitrixClient.playAudio('ringExternalSpeaker', incomingRingtone, speaker, 30000) // play incoming ringtone for up to 30 seconds; stop it via stopAudio if the user answers",
+              "lineNumber": 25
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 0
+            },
+            "end": {
+              "line": 38,
+              "column": 3
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 0
+              },
+              "end": {
+                "line": 84,
+                "column": 1
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/playAudio.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const beep = 'https://example.server.com/audio/shortbeep.wav'\nconst incomingRingtone = 'https://example.server.com/audio/ringing.wav'\nconst speaker = webrtcClient.media.getDevices().speaker[0].deviceId\n\ncitrixClient.playAudio('dtmfFeedback', beep, speaker) // play shortbeep.wav once\ncitrixClient.playAudio('ringExternalSpeaker', incomingRingtone, speaker, 30000) // play incoming ringtone for up to 30 seconds; stop it via stopAudio if the user answers"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "audioId",
+              "lineNumber": 7,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "A simple text identifier for your app, e.g. 'dtmfFeedback'. Should be unique for the URL and speaker combination."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "param",
+              "name": "url",
+              "lineNumber": 8,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The URL to the audio file to be played."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "param",
+              "name": "speakerId",
+              "lineNumber": 9,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The deviceId of the speaker the audio should be played from."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "param",
+              "name": "duration",
+              "lineNumber": 10,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Length of time to play the audio file, in milliseconds."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "OptionalType",
+                "expression": {
+                  "type": "NameExpression",
+                  "name": "number"
+                }
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_STATE"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if Citrix proxy mode has not been setup."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_PARAM"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if an audioId is not provided."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_PARAM"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if the url parameter is not valid."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_PARAM"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if the value of speakerId does not match one of the devices returned by the WebRTC JS SDK "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "media.getDevices().speaker"
+                      },
+                      {
+                        "type": "text",
+                        "value": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            },
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Will throw an error with code "
+                      },
+                      {
+                        "type": "inlineCode",
+                        "value": "INVALID_PARAM"
+                      },
+                      {
+                        "type": "text",
+                        "value": " if the value of duration is invalid."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Usage notes:"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "list",
+                    "ordered": false,
+                    "start": null,
+                    "spread": false,
+                    "children": [
+                      {
+                        "type": "listItem",
+                        "spread": false,
+                        "checked": null,
+                        "children": [
+                          {
+                            "type": "paragraph",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "If duration is specified and is longer than the length of specified audio file, playback will loop until "
+                              },
+                              {
+                                "type": "inlineCode",
+                                "value": "duration"
+                              },
+                              {
+                                "type": "text",
+                                "value": " expires."
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "spread": false,
+                        "checked": null,
+                        "children": [
+                          {
+                            "type": "paragraph",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "If duration is specified and is shorter than the length of specified audio file, playback will be truncated when "
+                              },
+                              {
+                                "type": "inlineCode",
+                                "value": "duration"
+                              },
+                              {
+                                "type": "text",
+                                "value": " expires."
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "spread": false,
+                        "checked": null,
+                        "children": [
+                          {
+                            "type": "paragraph",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "Therefore, when specifying duration, it is helpful to know the target file's playback length."
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "spread": false,
+                        "checked": null,
+                        "children": [
+                          {
+                            "type": "paragraph",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "If duration is not specified, the audio file will be played in its entirety once."
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "spread": false,
+                        "checked": null,
+                        "children": [
+                          {
+                            "type": "paragraph",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "Playback can be stopped at any time via the "
+                              },
+                              {
+                                "type": "link",
+                                "url": "#apistopaudio",
+                                "title": null,
+                                "jsdoc": true,
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "api.stopAudio"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "value": " API regardless of whether a duration is specified or not."
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "spread": false,
+                        "checked": null,
+                        "children": [
+                          {
+                            "type": "paragraph",
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "Calling this API a second time for a given audioId will stop any previous ongoing playback for the same audioId"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "api.CitrixError"
+              }
+            }
+          ],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "kind": "function",
+          "name": "playAudio",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "playAudio",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.playAudio"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Stops any audio that's playing for the specified audidId. Has no effect if called after playback has already stopped."
+                  }
+                ]
+              }
+            ]
+          },
+          "tags": [
+            {
+              "title": "public",
+              "description": null,
+              "lineNumber": 3,
+              "type": null
+            },
+            {
+              "title": "static",
+              "description": null,
+              "lineNumber": 4
+            },
+            {
+              "title": "memberof",
+              "description": "api",
+              "lineNumber": 5
+            },
+            {
+              "title": "method",
+              "description": null,
+              "lineNumber": 6,
+              "name": "stopAudio"
+            },
+            {
+              "title": "param",
+              "description": "The same identifier used to start audio playing. See {@link api.playAudio}",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "audioId"
+            },
+            {
+              "title": "example",
+              "description": "citrixClient.stopAudio('ringExternalSpeaker')",
+              "lineNumber": 8
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 86,
+              "column": 0
+            },
+            "end": {
+              "line": 96,
+              "column": 3
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 97,
+                "column": 0
+              },
+              "end": {
+                "line": 111,
+                "column": 1
+              }
+            },
+            "file": "/Users/brentthompson/Projects/webrtc.js/packages/citrix/src/api/playAudio.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "citrixClient.stopAudio('ringExternalSpeaker')"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "audioId",
+              "lineNumber": 7,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "The same identifier used to start audio playing. See "
+                      },
+                      {
+                        "type": "link",
+                        "url": "#apiplayaudio",
+                        "title": null,
+                        "jsdoc": true,
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "api.playAudio"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "access": "public",
+          "scope": "static",
+          "memberof": "api",
+          "kind": "function",
+          "name": "stopAudio",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "api",
+              "kind": "module"
+            },
+            {
+              "name": "stopAudio",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "api.stopAudio"
         },
         {
           "description": {
