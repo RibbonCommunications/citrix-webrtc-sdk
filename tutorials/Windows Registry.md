@@ -36,7 +36,7 @@ However, **note that "elevated" (i.e. Administrator) Windows priviledges are req
 
 ### NSIS
 
-A sample NSIS script is provided [here](./registry/installer.nsh).
+A sample NSIS script is provided [here](https://github.com/RibbonCommunications/citrix-webrtc-sdk/blob/master/tutorials/registry/installer.nsh).
 
 ### Formatting the application name for use in NSIS
 
