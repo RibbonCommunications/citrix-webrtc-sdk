@@ -172,11 +172,58 @@ Returns the current version of the Citrix WebRTC SDK.
 
 Returns **[string][6]** The Citrix WebRTC SDK version
 
+### playAudio
+
+Plays an audio file specified by a URL.
+
+#### Parameters
+
+*   `audioId` **[string][6]** A simple text identifier for your app, e.g. 'dtmfFeedback'. Should be unique for the URL and speaker combination.
+*   `url` **[string][6]** The URL to the audio file to be played.
+*   `speakerId` **[string][6]** The deviceId of the speaker the audio should be played from.
+*   `duration` **[number][2]?** Length of time to play the audio file, in milliseconds.
+
+#### Examples
+
+```javascript
+const beep = 'https://example.server.com/audio/shortbeep.wav'
+const incomingRingtone = 'https://example.server.com/audio/ringing.wav'
+const speaker = webrtcClient.media.getDevices().speaker[0].deviceId
+
+citrixClient.playAudio('dtmfFeedback', beep, speaker) // play shortbeep.wav once
+citrixClient.playAudio('ringExternalSpeaker', incomingRingtone, speaker, 30000) // play incoming ringtone for up to 30 seconds; stop it via stopAudio if the user answers
+```
+
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode has not been setup.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if an audioId is not provided.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if the url parameter is not valid.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if the value of speakerId does not match one of the devices returned by the WebRTC JS SDK `media.getDevices().speaker`.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if the value of duration is invalid.Usage notes:*   If duration is specified and is longer than the length of specified audio file, playback will loop until `duration` expires.
+    *   If duration is specified and is shorter than the length of specified audio file, playback will be truncated when `duration` expires.
+    *   Therefore, when specifying duration, it is helpful to know the target file's playback length.
+    *   If duration is not specified, the audio file will be played in its entirety once.
+    *   Playback can be stopped at any time via the [api.stopAudio][9] API regardless of whether a duration is specified or not.
+    *   Calling this API a second time for a given audioId will stop any previous ongoing playback for the same audioId
+
+### stopAudio
+
+Stops any audio that's playing for the specified audidId. Has no effect if called after playback has already stopped.
+
+#### Parameters
+
+*   `audioId` **[string][6]** The same identifier used to start audio playing. See [api.playAudio][10]
+
+#### Examples
+
+```javascript
+citrixClient.stopAudio('ringExternalSpeaker')
+```
+
 ### errorCodes
 
 Possible error codes for the errors thrown by the Citrix WebRTC SDK.
 
-Each error thrown by the SDK is in the format of [api.CitrixError][9]. These error objects
+Each error thrown by the SDK is in the format of [api.CitrixError][11]. These error objects
 include a code and message. The codes provide a basic hint as to what the error is as per descriptions below.
 The message provides more context about the error encountered.
 
@@ -219,7 +266,7 @@ Type: [Object][1]
 
 #### Properties
 
-*   `code` **[string][6]** One of [api.errorCodes][10]
+*   `code` **[string][6]** One of [api.errorCodes][12]
 *   `message` **[string][6]** A human-readable message to describe the error.
 
 ### eventTypes
@@ -232,7 +279,7 @@ Type: [Object][1]
 
 *   `CITRIX_CONNECTED` **[string][6]** Citrix Webrtc redirection initiated successfully
 *   `CITRIX_DISCONNECTED` **[string][6]** Citrix Webrtc redirection failed to start successfully or failed after connection
-*   `CITRIX_E911_DATA_CHANGED` **[string][6]** Client E911 data has changed; updated data should be retrieved via [api.getE911Data][11]
+*   `CITRIX_E911_DATA_CHANGED` **[string][6]** Client E911 data has changed; updated data should be retrieved via [api.getE911Data][13]
 
 #### Examples
 
@@ -260,8 +307,12 @@ citrixClient.on(citrixClient.eventTypes.CITRIX_E911_DATA_CHANGED, data => {
 
 [8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[9]: #apicitrixerror
+[9]: #apistopaudio
 
-[10]: #apierrorcodes
+[10]: #apiplayaudio
 
-[11]: #apigete911data
+[11]: #apicitrixerror
+
+[12]: #apierrorcodes
+
+[13]: #apigete911data
