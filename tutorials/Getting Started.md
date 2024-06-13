@@ -17,7 +17,7 @@ There are a few prerequisite that must be satisfied before we can successfully s
 
 To setup the WebRTC JS SDK to run with the Citrix WebRTC SDK, we simply need to call the `setup` API, providing in the initialized WebRTC JS SDK.
 
-```javascript exclude
+```javascript
 // Import the WebRTC JS SDK.
 import { create } from '@rbbn/citrix-webrtc-sdk/webrtc'
 // Import the Citrix WebRTC SDK
