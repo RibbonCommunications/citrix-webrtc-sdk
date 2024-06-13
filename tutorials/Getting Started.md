@@ -38,7 +38,7 @@ try {
 
 In order to reverse the above setup and restore the WebRTC JS SDK to normal, we can use the `teardown` API from the Citrix WebRTC SDK.
 
-```javascript exclude
+```javascript
 // ...Citrix proxy mode setup code...
 
 // Teardown Citrix proxy mode from the SDK
