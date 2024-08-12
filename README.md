@@ -36,7 +36,7 @@ The information about tutorials and documents can be found in the links below
 - No ability to play local audio file
 
 #### Video calls
-- When this SDK is used in a browser, video calls do not work correctly. Only audio calls should be tested.
+- When this SDK is used in a browser, video calls do not work correctly. Only audio calls should be tested if this SDK is being used in a browser.
 - Video calls may use the wrong camera if more than one present
 - Errors may be visible in the console when ending video calls
 
