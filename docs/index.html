@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>citrix-webrtc-sdk 6.12.0 | Documentation</title>
+  <title>citrix-webrtc-sdk 6.14.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>citrix-webrtc-sdk</h3>
-          <div class='mb1'><code>6.12.0</code></div>
+          <div class='mb1'><code>6.14.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -889,7 +889,7 @@ citrixClient.subscribe(eventHandler)</pre>
 
   
 
-  <p>Sets an offset by which all video elements will be adjusted. Must be called prior to rendering the video stream to be adjusted.</p>
+  <p>Sets an offset by which all video elements will be adjusted. Must be called prior to rendering the video stream to be adjusted. Should only be used in an Electron environment and will throw an error if called in a browser.</p>
 
 
   <div class='pre p1 fill-light mt0'>adjustVideoPosition(xOffset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, yOffset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
@@ -954,6 +954,11 @@ citrixClient.subscribe(eventHandler)</pre>
         <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
 <code>INVALID_STATE</code>
  if Electron IPC functions have not been setup correctly.
+</li>
+      
+        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
+<code>NOT_SUPPORTED</code>
+ if called outside of Electron.
 </li>
       
         <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
@@ -1334,6 +1339,21 @@ The message provides more context about the error encountered.</p>
 
           
              : An INVALID_STATE error indicates that SDK is in an invalid state to proceed with the operation.
+
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>NOT_SUPPORTED</span> 
+          <code class='quiet'>
+            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
+          </code>
+
+          
+
+          
+             : A NOT_SUPPORTED error indicates that the SDK or one of its APIs is being used in an environment in which it is not supported for use.
 
           
           

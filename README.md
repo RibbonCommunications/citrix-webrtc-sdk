@@ -23,7 +23,6 @@ The information about tutorials and documents can be found in the links below
 ## Known Issues / Limitations
 
 #### Calls
-- Replacing a Track (`call.replaceTrack()`) causes two-way audio loss
 - Outgoing calls don't have remote media after being established (Electron only)
 
 #### Devices
