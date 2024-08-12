@@ -23,7 +23,7 @@ The information about tutorials and documents can be found in the links below
 ## Known Issues / Limitations
 
 #### Calls
-- Replacing a Track (`call.replaceTrack()`) causes two-way audio loss. Resolved when using CWA 2405 or higher.
+- Replacing a Track (`call.replaceTrack()`) causes two-way audio loss. Resolved when using Citrix Workspace App for Linux 2405 or higher.
 - Outgoing calls don't have remote media after being established (Electron only)
 
 #### Devices
@@ -52,4 +52,4 @@ The information about tutorials and documents can be found in the links below
 - No notification / event when Teardown completes
 - Citrix Workspace App for Linux (eLux) version 2309 or higher required
 - No handling or notification of Citrix lifecycle events (e.g. channel reconnect)
-- E911 event & API return malformed data on eLux/Linux. Resolved when using CWA 2405 or higher.
+- E911 event & API return malformed data on eLux/Linux. Resolved when using Citrix Workspace App for Linux 2405 or higher.
