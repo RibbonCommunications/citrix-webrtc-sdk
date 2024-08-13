@@ -137,7 +137,7 @@ Removes a global event listener from the SDK instance.
 
 ### adjustVideoPosition
 
-Sets an offset by which all video elements will be adjusted. Must be called prior to rendering the video stream to be adjusted.
+Sets an offset by which all video elements will be adjusted. Must be called prior to rendering the video stream to be adjusted. Should only be used in an Electron environment and will throw an error if called in a browser.
 
 #### Parameters
 
@@ -162,6 +162,7 @@ try {
 
 *   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode has not been set up.
 *   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if Electron IPC functions have not been setup correctly.
+*   Throws **[api.CitrixError][3]** Will throw an error with code `NOT_SUPPORTED` if called outside of Electron.
 *   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if the provided offset values are not of type 'number'.
 
 Returns **[Promise][4]** Resolves upon successful completion
@@ -234,6 +235,7 @@ Type: [Object][1]
 *   `CITRIX_SDK_ERROR` **[string][6]** A CITRIX_SDK_ERROR error indicates that the Citrix UC SDK threw an error.
 *   `INVALID_PARAM` **[string][6]** An INVALID_PARAM error indicates that an invalid parameter was passed to the API.
 *   `INVALID_STATE` **[string][6]** An INVALID_STATE error indicates that SDK is in an invalid state to proceed with the operation.
+*   `NOT_SUPPORTED` **[string][6]** A NOT_SUPPORTED error indicates that the SDK or one of its APIs is being used in an environment in which it is not supported for use.
 *   `VERSION_MISMATCH` **[string][6]** A VERSION_MISMATCH error indicates that the provided WebRTC SDK version does not match the Citrix WebRTC SDK version.
 
 #### Examples
