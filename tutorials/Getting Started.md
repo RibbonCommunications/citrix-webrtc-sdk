@@ -65,3 +65,4 @@ Unlikely error scenarios, such as version mismatch or Citrix SDK errors, may be 
 - Verify you are not using files from different published versions of the SDKs to avoid version mismatch errors.
 - Verify you are in the correct environment for Citrix to avoid Citrix SDK errors.
 - Attempt to increase the default timeout value of 10 seconds for the Citrix SDK to be loaded during `setup` by providing a higher timeout value to the API. For example: `citrixClient.setup(SDK, 15000)`.
+
