@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>citrix-webrtc-sdk 6.14.0 | Documentation</title>
+  <title>citrix-webrtc-sdk 6.16.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>citrix-webrtc-sdk</h3>
-          <div class='mb1'><code>6.14.0</code></div>
+          <div class='mb1'><code>6.16.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -37,18 +37,6 @@
                         
                           <ul class='list-reset py1-ul pl1'>
                           <li class='h5'><span>Functions</span></li>
-                          
-                            <li><a
-                              href='#apisetup'
-                              class='regular pre-open'>
-                              <span style="color:green">ⓕ</span> .setup
-                            </a></li>
-                          
-                            <li><a
-                              href='#apiteardown'
-                              class='regular pre-open'>
-                              <span style="color:green">ⓕ</span> .teardown
-                            </a></li>
                           
                             <li><a
                               href='#apiissetup'
@@ -93,6 +81,18 @@
                             </a></li>
                           
                             <li><a
+                              href='#apieventtypes'
+                              class='regular pre-open'>
+                              <span style="color:green">ⓕ</span> .eventTypes
+                            </a></li>
+                          
+                            <li><a
+                              href='#apierrorcodes'
+                              class='regular pre-open'>
+                              <span style="color:green">ⓕ</span> .errorCodes
+                            </a></li>
+                          
+                            <li><a
                               href='#apigetversion'
                               class='regular pre-open'>
                               <span style="color:green">ⓕ</span> .getVersion
@@ -111,15 +111,15 @@
                             </a></li>
                           
                             <li><a
-                              href='#apierrorcodes'
+                              href='#apisetup'
                               class='regular pre-open'>
-                              <span style="color:green">ⓕ</span> .errorCodes
+                              <span style="color:green">ⓕ</span> .setup
                             </a></li>
                           
                             <li><a
-                              href='#apieventtypes'
+                              href='#apiteardown'
                               class='regular pre-open'>
-                              <span style="color:green">ⓕ</span> .eventTypes
+                              <span style="color:green">ⓕ</span> .teardown
                             </a></li>
                           
                           </ul>
@@ -272,205 +272,6 @@ It contains various top-level functions that pertain to Citrix WebRTC SDK global
     
       <div class='py1 quiet mt1 prose-big'>Functions</div>
       <div class="clearfix">
-  
-    <div class='border-bottom' id='apisetup'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>setup(SDK, timeout)</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>Initializes the Citrix UC SDK and sets up the WebRTC SDK to run in Citrix proxy mode.</p>
-
-
-  <div class='pre p1 fill-light mt0'>setup(SDK: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, timeout: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>SDK</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    The WebRTC JS SDK.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>timeout</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
-            = <code>10000</code>)</code>
-	    The time to wait, in milliseconds, for the Citrix SDK to initialize.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Returns</div>
-    
-      <div>
-        <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
-          Resolves upon successful completion
-
-        
-      </div>
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
-<code>INVALID_STATE</code>
- if Citrix proxy mode is already setup.
-</li>
-      
-        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
-<code>INVALID_PARAM</code>
- if provided SDK parameter is invalid.
-</li>
-      
-        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
-<code>INVALID_STATE</code>
- if active calls are ongoing.
-</li>
-      
-        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
-<code>VERSION_MISMATCH</code>
- if WebRTC JS SDK and Citrix WebRTC SDK versions mismatch.
-</li>
-      
-        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
-<code>CITRIX_SDK_ERROR</code>
- if Citrix UC SDK fails to initialize.
-</li>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> citrixClient <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rbbn/citrix-webrtc-sdk/citrix&#x27;</span>
-
-<span class="hljs-comment">// Setup proxy mode on WebRTC SDK client by passing in the created client.</span>
-<span class="hljs-keyword">try</span> {
-  <span class="hljs-keyword">await</span> citrixClient.setup(webrtcClient)
-} <span class="hljs-keyword">catch</span> (error) {
-  <span class="hljs-comment">// See Throws section and api.errorCodes documentation for list of possible errors.</span>
-}</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='apiteardown'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>teardown()</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>Tears down the Citrix UC SDK and returns the WebRTC JS SDK to non-proxy mode.</p>
-<p>This API will also trigger a device update within the WebRTC JS SDK after successfully
-tearing down the proxies.</p>
-
-
-  <div class='pre p1 fill-light mt0'>teardown(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Returns</div>
-    
-      <div>
-        <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
-          Resolves upon successful completion.
-
-        
-      </div>
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error if active calls are ongoing.
-</li>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">try</span> {
-  citrixClient.teardown()
-} <span class="hljs-keyword">catch</span> (error) {
-  <span class="hljs-comment">// See Throws section and api.errorCodes documentation for list of possible errors.</span>
-}</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
   
     <div class='border-bottom' id='apiissetup'>
       <div class="clearfix small pointer toggle-sibling">
@@ -957,11 +758,6 @@ citrixClient.subscribe(eventHandler)</pre>
 </li>
       
         <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
-<code>NOT_SUPPORTED</code>
- if called outside of Electron.
-</li>
-      
-        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
 <code>INVALID_PARAM</code>
  if the provided offset values are not of type 'number'.
 </li>
@@ -983,6 +779,259 @@ citrixClient.subscribe(eventHandler)</pre>
 
 } <span class="hljs-keyword">catch</span> (error) {
   <span class="hljs-comment">// See Throws section and api.errorCodes documentation for list of possible errors.</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='apieventtypes'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>eventTypes</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Possible events emitted by the Citrix WebRTC SDK</p>
+
+
+  <div class='pre p1 fill-light mt0'>eventTypes</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>CITRIX_CONNECTED</span> 
+          <code class='quiet'>
+            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
+          </code>
+
+          
+
+          
+             : Citrix Webrtc redirection initiated successfully
+
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>CITRIX_DISCONNECTED</span> 
+          <code class='quiet'>
+            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
+          </code>
+
+          
+
+          
+             : Citrix Webrtc redirection failed to start successfully or failed after connection
+
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>CITRIX_E911_DATA_CHANGED</span> 
+          <code class='quiet'>
+            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
+          </code>
+
+          
+
+          
+             : Client E911 data has changed; updated data should be retrieved via 
+<a href="#apigete911data">api.getE911Data</a>
+
+          
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> citrixClient <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rbbn/citrix-webrtc-sdk/citrix&#x27;</span>
+<span class="hljs-comment">// Start listening for events</span>
+citrixClient.on(citrixClient.eventTypes.CITRIX_E911_DATA_CHANGED, <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+  <span class="hljs-comment">// Do something with data</span>
+})</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='apierrorcodes'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>errorCodes</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Possible error codes for the errors thrown by the Citrix WebRTC SDK.</p>
+<p>Each error thrown by the SDK is in the format of <a href="#apicitrixerror">api.CitrixError</a>. These error objects
+include a code and message. The codes provide a basic hint as to what the error is as per descriptions below.
+The message provides more context about the error encountered.</p>
+
+
+  <div class='pre p1 fill-light mt0'>errorCodes</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>CITRIX_SDK_ERROR</span> 
+          <code class='quiet'>
+            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
+          </code>
+
+          
+
+          
+             : A CITRIX_SDK_ERROR error indicates that the Citrix UC SDK threw an error.
+
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>INVALID_PARAM</span> 
+          <code class='quiet'>
+            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
+          </code>
+
+          
+
+          
+             : An INVALID_PARAM error indicates that an invalid parameter was passed to the API.
+
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>INVALID_STATE</span> 
+          <code class='quiet'>
+            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
+          </code>
+
+          
+
+          
+             : An INVALID_STATE error indicates that SDK is in an invalid state to proceed with the operation.
+
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>VERSION_MISMATCH</span> 
+          <code class='quiet'>
+            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
+          </code>
+
+          
+
+          
+             : A VERSION_MISMATCH error indicates that the provided WebRTC SDK version does not match the Citrix WebRTC SDK version.
+
+          
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> citrixClient <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rbbn/citrix-webrtc-sdk/citrix&#x27;</span>
+<span class="hljs-keyword">try</span> {
+  <span class="hljs-keyword">await</span> citrixClient.setup(rbbnWebRTC)
+} <span class="hljs-keyword">catch</span> (error) {
+  <span class="hljs-comment">// Error contains a `code` and `message` property.</span>
+  <span class="hljs-keyword">const</span> { code, message } = error
+  <span class="hljs-keyword">switch</span> (code) {
+    <span class="hljs-keyword">case</span> citrixClient.errorCodes.CITRIX_SDK_ERROR:
+      <span class="hljs-comment">// Handle error originating from the Citrix UC SDK.</span>
+    <span class="hljs-keyword">case</span> citrixClient.errorCodes.INVALID_PARAM:
+      <span class="hljs-comment">// Handle the error with the parameter provided.</span>
+    <span class="hljs-keyword">case</span> citrixClient.errorCodes.INVALID_STATE:
+      <span class="hljs-comment">// Handle an SDK not being in the correct state for the API call.</span>
+    <span class="hljs-keyword">case</span> citrixClient.errorCodes.VERSION_MISMATCH:
+      <span class="hljs-comment">// Handle the two SDK&#x27;s not being on the same version.</span>
+  }
 }</pre>
     
   
@@ -1259,11 +1308,11 @@ citrixClient.playAudio(<span class="hljs-string">&#x27;ringExternalSpeaker&#x27;
       </div>
     </div>
   
-    <div class='border-bottom' id='apierrorcodes'>
+    <div class='border-bottom' id='apisetup'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>errorCodes</span>
+            <span class='code strong strong truncate'>setup(SDK, timeout)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -1271,18 +1320,10 @@ citrixClient.playAudio(<span class="hljs-string">&#x27;ringExternalSpeaker&#x27;
 
   
 
-  <p>Possible error codes for the errors thrown by the Citrix WebRTC SDK.</p>
-<p>Each error thrown by the SDK is in the format of <a href="#apicitrixerror">api.CitrixError</a>. These error objects
-include a code and message. The codes provide a basic hint as to what the error is as per descriptions below.
-The message provides more context about the error encountered.</p>
+  <p>Initializes the Citrix UC SDK and sets up the WebRTC SDK to run in Citrix proxy mode.</p>
 
 
-  <div class='pre p1 fill-light mt0'>errorCodes</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
-    </p>
+  <div class='pre p1 fill-light mt0'>setup(SDK: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, timeout: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
   
   
 
@@ -1294,83 +1335,25 @@ The message provides more context about the error encountered.</p>
   
 
   
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
       
         <div class='space-bottom0'>
-          <span class='code bold'>CITRIX_SDK_ERROR</span> 
-          <code class='quiet'>
-            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
-          </code>
+          <div>
+            <span class='code bold'>SDK</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The WebRTC JS SDK.
 
-          
-
-          
-             : A CITRIX_SDK_ERROR error indicates that the Citrix UC SDK threw an error.
-
-          
+          </div>
           
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>INVALID_PARAM</span> 
-          <code class='quiet'>
-            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
-          </code>
+          <div>
+            <span class='code bold'>timeout</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
+            = <code>10000</code>)</code>
+	    The time to wait, in milliseconds, for the Citrix SDK to initialize.
 
-          
-
-          
-             : An INVALID_PARAM error indicates that an invalid parameter was passed to the API.
-
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>INVALID_STATE</span> 
-          <code class='quiet'>
-            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
-          </code>
-
-          
-
-          
-             : An INVALID_STATE error indicates that SDK is in an invalid state to proceed with the operation.
-
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>NOT_SUPPORTED</span> 
-          <code class='quiet'>
-            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
-          </code>
-
-          
-
-          
-             : A NOT_SUPPORTED error indicates that the SDK or one of its APIs is being used in an environment in which it is not supported for use.
-
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>VERSION_MISMATCH</span> 
-          <code class='quiet'>
-            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
-          </code>
-
-          
-
-          
-             : A VERSION_MISMATCH error indicates that the provided WebRTC SDK version does not match the Citrix WebRTC SDK version.
-
-          
+          </div>
           
         </div>
       
@@ -1380,27 +1363,60 @@ The message provides more context about the error encountered.</p>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Returns</div>
+    
+      <div>
+        <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
+          Resolves upon successful completion
+
+        
+      </div>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
+<code>INVALID_STATE</code>
+ if Citrix proxy mode is already setup.
+</li>
+      
+        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
+<code>INVALID_PARAM</code>
+ if provided SDK parameter is invalid.
+</li>
+      
+        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
+<code>INVALID_STATE</code>
+ if active calls are ongoing.
+</li>
+      
+        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
+<code>VERSION_MISMATCH</code>
+ if WebRTC JS SDK and Citrix WebRTC SDK versions mismatch.
+</li>
+      
+        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error with code 
+<code>CITRIX_SDK_ERROR</code>
+ if Citrix UC SDK fails to initialize.
+</li>
+      
+    </ul>
+  
 
   
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> citrixClient <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rbbn/citrix-webrtc-sdk/citrix&#x27;</span>
+
+<span class="hljs-comment">// Setup proxy mode on WebRTC SDK client by passing in the created client.</span>
 <span class="hljs-keyword">try</span> {
-  <span class="hljs-keyword">await</span> citrixClient.setup(rbbnWebRTC)
+  <span class="hljs-keyword">await</span> citrixClient.setup(webrtcClient)
 } <span class="hljs-keyword">catch</span> (error) {
-  <span class="hljs-comment">// Error contains a `code` and `message` property.</span>
-  <span class="hljs-keyword">const</span> { code, message } = error
-  <span class="hljs-keyword">switch</span> (code) {
-    <span class="hljs-keyword">case</span> citrixClient.errorCodes.CITRIX_SDK_ERROR:
-      <span class="hljs-comment">// Handle error originating from the Citrix UC SDK.</span>
-    <span class="hljs-keyword">case</span> citrixClient.errorCodes.INVALID_PARAM:
-      <span class="hljs-comment">// Handle the error with the parameter provided.</span>
-    <span class="hljs-keyword">case</span> citrixClient.errorCodes.INVALID_STATE:
-      <span class="hljs-comment">// Handle an SDK not being in the correct state for the API call.</span>
-    <span class="hljs-keyword">case</span> citrixClient.errorCodes.VERSION_MISMATCH:
-      <span class="hljs-comment">// Handle the two SDK&#x27;s not being on the same version.</span>
-  }
+  <span class="hljs-comment">// See Throws section and api.errorCodes documentation for list of possible errors.</span>
 }</pre>
     
   
@@ -1415,11 +1431,11 @@ The message provides more context about the error encountered.</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='apieventtypes'>
+    <div class='border-bottom' id='apiteardown'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>eventTypes</span>
+            <span class='code strong strong truncate'>teardown()</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -1427,15 +1443,12 @@ The message provides more context about the error encountered.</p>
 
   
 
-  <p>Possible events emitted by the Citrix WebRTC SDK</p>
+  <p>Tears down the Citrix UC SDK and returns the WebRTC JS SDK to non-proxy mode.</p>
+<p>This API will also trigger a device update within the WebRTC JS SDK after successfully
+tearing down the proxies.</p>
 
 
-  <div class='pre p1 fill-light mt0'>eventTypes</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
-    </p>
+  <div class='pre p1 fill-light mt0'>teardown(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></div>
   
   
 
@@ -1449,71 +1462,38 @@ The message provides more context about the error encountered.</p>
   
 
   
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
+
+  
+    <div class='py1 quiet mt1 prose-big'>Returns</div>
+    
+      <div>
+        <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>:
+          Resolves upon successful completion.
+
+        
+      </div>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
       
-        <div class='space-bottom0'>
-          <span class='code bold'>CITRIX_CONNECTED</span> 
-          <code class='quiet'>
-            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
-          </code>
-
-          
-
-          
-             : Citrix Webrtc redirection initiated successfully
-
-          
-          
-        </div>
+        <li><a href="#apicitrixerror">api.CitrixError</a>: Will throw an error if active calls are ongoing.
+</li>
       
-        <div class='space-bottom0'>
-          <span class='code bold'>CITRIX_DISCONNECTED</span> 
-          <code class='quiet'>
-            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
-          </code>
-
-          
-
-          
-             : Citrix Webrtc redirection failed to start successfully or failed after connection
-
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>CITRIX_E911_DATA_CHANGED</span> 
-          <code class='quiet'>
-            (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
-          </code>
-
-          
-
-          
-             : Client E911 data has changed; updated data should be retrieved via 
-<a href="#apigete911data">api.getE911Data</a>
-
-          
-          
-        </div>
-      
-    </div>
-  
-
-  
-
+    </ul>
   
 
   
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">import</span> citrixClient <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rbbn/citrix-webrtc-sdk/citrix&#x27;</span>
-<span class="hljs-comment">// Start listening for events</span>
-citrixClient.on(citrixClient.eventTypes.CITRIX_E911_DATA_CHANGED, <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
-  <span class="hljs-comment">// Do something with data</span>
-})</pre>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">try</span> {
+  citrixClient.teardown()
+} <span class="hljs-keyword">catch</span> (error) {
+  <span class="hljs-comment">// See Throws section and api.errorCodes documentation for list of possible errors.</span>
+}</pre>
     
   
 

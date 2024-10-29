@@ -5,57 +5,6 @@
 The top level 'api' is what is available to an app after the Citrix WebRTC SDK has been imported.
 It contains various top-level functions that pertain to Citrix WebRTC SDK global instance, as well as event emitter methods.
 
-### setup
-
-Initializes the Citrix UC SDK and sets up the WebRTC SDK to run in Citrix proxy mode.
-
-#### Parameters
-
-*   `SDK` **[Object][1]** The WebRTC JS SDK.
-*   `timeout` **[number][2]** The time to wait, in milliseconds, for the Citrix SDK to initialize. (optional, default `10000`)
-
-#### Examples
-
-```javascript
-import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'
-
-// Setup proxy mode on WebRTC SDK client by passing in the created client.
-try {
-  await citrixClient.setup(webrtcClient)
-} catch (error) {
-  // See Throws section and api.errorCodes documentation for list of possible errors.
-}
-```
-
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode is already setup.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if provided SDK parameter is invalid.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if active calls are ongoing.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `VERSION_MISMATCH` if WebRTC JS SDK and Citrix WebRTC SDK versions mismatch.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `CITRIX_SDK_ERROR` if Citrix UC SDK fails to initialize.
-
-Returns **[Promise][4]** Resolves upon successful completion
-
-### teardown
-
-Tears down the Citrix UC SDK and returns the WebRTC JS SDK to non-proxy mode.
-
-This API will also trigger a device update within the WebRTC JS SDK after successfully
-tearing down the proxies.
-
-#### Examples
-
-```javascript
-try {
-  citrixClient.teardown()
-} catch (error) {
-  // See Throws section and api.errorCodes documentation for list of possible errors.
-}
-```
-
-*   Throws **[api.CitrixError][3]** Will throw an error if active calls are ongoing.
-
-Returns **[Promise][4]** Resolves upon successful completion.
-
 ### isSetup
 
 Returns whether proxy mode has been setup or not.
@@ -70,13 +19,13 @@ citrixClient.teardown()
 log(citrixClient.isSetup())     // false
 ```
 
-Returns **[boolean][5]** Returns true if proxy mode is setup, false otherwise.
+Returns **[boolean][1]** Returns true if proxy mode is setup, false otherwise.
 
 ### getE911Data
 
 Returns E911 data from the client.
 
-Returns **[Object][1]** Client E911 data
+Returns **[Object][2]** Client E911 data
 
 ### on
 
@@ -84,8 +33,8 @@ Add an event listener for the specified event type.
 
 #### Parameters
 
-*   `type` **[string][6]** The event type for which to add the listener. See [api.eventTypes][7] for possible event types
-*   `listener` **[Function][8]** The listener for the event type. The parameters of the listener depend on the event type.
+*   `type` **[string][3]** The event type for which to add the listener. See [api.eventTypes][4] for possible event types
+*   `listener` **[Function][5]** The listener for the event type. The parameters of the listener depend on the event type.
 
 #### Examples
 
@@ -104,8 +53,8 @@ Removes an event listener for the specified event type.
 
 #### Parameters
 
-*   `type` **[string][6]** The event type for which to remote the listener.
-*   `listener` **[Function][8]** The listener to remove.
+*   `type` **[string][3]** The event type for which to remote the listener.
+*   `listener` **[Function][5]** The listener to remove.
 
 ### subscribe
 
@@ -113,7 +62,7 @@ Adds a global event listener to the SDK instance. The listener is a function tha
 
 #### Parameters
 
-*   `listener` **[Function][8]** The event listener function. The function will be called with parameters (type, ...args), where args depend on the event type.
+*   `listener` **[Function][5]** The event listener function. The function will be called with parameters (type, ...args), where args depend on the event type.
 
 #### Examples
 
@@ -133,7 +82,7 @@ Removes a global event listener from the SDK instance.
 
 #### Parameters
 
-*   `listener` **[Function][8]** The event listener to remove.
+*   `listener` **[Function][5]** The event listener to remove.
 
 ### adjustVideoPosition
 
@@ -141,8 +90,8 @@ Sets an offset by which all video elements will be adjusted. Must be called prio
 
 #### Parameters
 
-*   `xOffset` **[number][2]** The number of pixels to adjust video elements left or right. A negative offset moves elements left, a positive number moves them right.
-*   `yOffset` **[number][2]** The number of pixels to adjust video elements up or down. A negative offset moves elements up, a positive number moves them down.
+*   `xOffset` **[number][6]** The number of pixels to adjust video elements left or right. A negative offset moves elements left, a positive number moves them right.
+*   `yOffset` **[number][6]** The number of pixels to adjust video elements up or down. A negative offset moves elements up, a positive number moves them down.
 
 #### Examples
 
@@ -160,83 +109,50 @@ try {
 }
 ```
 
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode has not been set up.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if Electron IPC functions have not been setup correctly.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `NOT_SUPPORTED` if called outside of Electron.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if the provided offset values are not of type 'number'.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode has not been set up.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_STATE` if Electron IPC functions have not been setup correctly.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_PARAM` if the provided offset values are not of type 'number'.
 
-Returns **[Promise][4]** Resolves upon successful completion
+Returns **[Promise][8]** Resolves upon successful completion
 
-### getVersion
+### eventTypes
 
-Returns the current version of the Citrix WebRTC SDK.
+Possible events emitted by the Citrix WebRTC SDK
 
-Returns **[string][6]** The Citrix WebRTC SDK version
+Type: [Object][2]
 
-### playAudio
+#### Properties
 
-Plays an audio file specified by a URL.
-
-#### Parameters
-
-*   `audioId` **[string][6]** A simple text identifier for your app, e.g. 'dtmfFeedback'. Should be unique for the URL and speaker combination.
-*   `url` **[string][6]** The URL to the audio file to be played.
-*   `speakerId` **[string][6]** The deviceId of the speaker the audio should be played from.
-*   `duration` **[number][2]?** Length of time to play the audio file, in milliseconds.
+*   `CITRIX_CONNECTED` **[string][3]** Citrix Webrtc redirection initiated successfully
+*   `CITRIX_DISCONNECTED` **[string][3]** Citrix Webrtc redirection failed to start successfully or failed after connection
+*   `CITRIX_E911_DATA_CHANGED` **[string][3]** Client E911 data has changed; updated data should be retrieved via [api.getE911Data][9]
 
 #### Examples
 
 ```javascript
-const beep = 'https://example.server.com/audio/shortbeep.wav'
-const incomingRingtone = 'https://example.server.com/audio/ringing.wav'
-const speaker = webrtcClient.media.getDevices().speaker[0].deviceId
-
-citrixClient.playAudio('dtmfFeedback', beep, speaker) // play shortbeep.wav once
-citrixClient.playAudio('ringExternalSpeaker', incomingRingtone, speaker, 30000) // play incoming ringtone for up to 30 seconds; stop it via stopAudio if the user answers
-```
-
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode has not been setup.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if an audioId is not provided.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if the url parameter is not valid.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if the value of speakerId does not match one of the devices returned by the WebRTC JS SDK `media.getDevices().speaker`.
-*   Throws **[api.CitrixError][3]** Will throw an error with code `INVALID_PARAM` if the value of duration is invalid.Usage notes:*   If duration is specified and is longer than the length of specified audio file, playback will loop until `duration` expires.
-    *   If duration is specified and is shorter than the length of specified audio file, playback will be truncated when `duration` expires.
-    *   Therefore, when specifying duration, it is helpful to know the target file's playback length.
-    *   If duration is not specified, the audio file will be played in its entirety once.
-    *   Playback can be stopped at any time via the [api.stopAudio][9] API regardless of whether a duration is specified or not.
-    *   Calling this API a second time for a given audioId will stop any previous ongoing playback for the same audioId
-
-### stopAudio
-
-Stops any audio that's playing for the specified audidId. Has no effect if called after playback has already stopped.
-
-#### Parameters
-
-*   `audioId` **[string][6]** The same identifier used to start audio playing. See [api.playAudio][10]
-
-#### Examples
-
-```javascript
-citrixClient.stopAudio('ringExternalSpeaker')
+import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'
+// Start listening for events
+citrixClient.on(citrixClient.eventTypes.CITRIX_E911_DATA_CHANGED, data => {
+  // Do something with data
+})
 ```
 
 ### errorCodes
 
 Possible error codes for the errors thrown by the Citrix WebRTC SDK.
 
-Each error thrown by the SDK is in the format of [api.CitrixError][11]. These error objects
+Each error thrown by the SDK is in the format of [api.CitrixError][10]. These error objects
 include a code and message. The codes provide a basic hint as to what the error is as per descriptions below.
 The message provides more context about the error encountered.
 
-Type: [Object][1]
+Type: [Object][2]
 
 #### Properties
 
-*   `CITRIX_SDK_ERROR` **[string][6]** A CITRIX_SDK_ERROR error indicates that the Citrix UC SDK threw an error.
-*   `INVALID_PARAM` **[string][6]** An INVALID_PARAM error indicates that an invalid parameter was passed to the API.
-*   `INVALID_STATE` **[string][6]** An INVALID_STATE error indicates that SDK is in an invalid state to proceed with the operation.
-*   `NOT_SUPPORTED` **[string][6]** A NOT_SUPPORTED error indicates that the SDK or one of its APIs is being used in an environment in which it is not supported for use.
-*   `VERSION_MISMATCH` **[string][6]** A VERSION_MISMATCH error indicates that the provided WebRTC SDK version does not match the Citrix WebRTC SDK version.
+*   `CITRIX_SDK_ERROR` **[string][3]** A CITRIX_SDK_ERROR error indicates that the Citrix UC SDK threw an error.
+*   `INVALID_PARAM` **[string][3]** An INVALID_PARAM error indicates that an invalid parameter was passed to the API.
+*   `INVALID_STATE` **[string][3]** An INVALID_STATE error indicates that SDK is in an invalid state to proceed with the operation.
+*   `VERSION_MISMATCH` **[string][3]** A VERSION_MISMATCH error indicates that the provided WebRTC SDK version does not match the Citrix WebRTC SDK version.
 
 #### Examples
 
@@ -264,57 +180,139 @@ try {
 
 The CitrixError object. Provides information about an error that occurred in the Citrix WebRTC SDK.
 
-Type: [Object][1]
+Type: [Object][2]
 
 #### Properties
 
-*   `code` **[string][6]** One of [api.errorCodes][12]
-*   `message` **[string][6]** A human-readable message to describe the error.
+*   `code` **[string][3]** One of [api.errorCodes][11]
+*   `message` **[string][3]** A human-readable message to describe the error.
 
-### eventTypes
+### getVersion
 
-Possible events emitted by the Citrix WebRTC SDK
+Returns the current version of the Citrix WebRTC SDK.
 
-Type: [Object][1]
+Returns **[string][3]** The Citrix WebRTC SDK version
 
-#### Properties
+### playAudio
 
-*   `CITRIX_CONNECTED` **[string][6]** Citrix Webrtc redirection initiated successfully
-*   `CITRIX_DISCONNECTED` **[string][6]** Citrix Webrtc redirection failed to start successfully or failed after connection
-*   `CITRIX_E911_DATA_CHANGED` **[string][6]** Client E911 data has changed; updated data should be retrieved via [api.getE911Data][13]
+Plays an audio file specified by a URL.
+
+#### Parameters
+
+*   `audioId` **[string][3]** A simple text identifier for your app, e.g. 'dtmfFeedback'. Should be unique for the URL and speaker combination.
+*   `url` **[string][3]** The URL to the audio file to be played.
+*   `speakerId` **[string][3]** The deviceId of the speaker the audio should be played from.
+*   `duration` **[number][6]?** Length of time to play the audio file, in milliseconds.
+
+#### Examples
+
+```javascript
+const beep = 'https://example.server.com/audio/shortbeep.wav'
+const incomingRingtone = 'https://example.server.com/audio/ringing.wav'
+const speaker = webrtcClient.media.getDevices().speaker[0].deviceId
+
+citrixClient.playAudio('dtmfFeedback', beep, speaker) // play shortbeep.wav once
+citrixClient.playAudio('ringExternalSpeaker', incomingRingtone, speaker, 30000) // play incoming ringtone for up to 30 seconds; stop it via stopAudio if the user answers
+```
+
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode has not been setup.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_PARAM` if an audioId is not provided.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_PARAM` if the url parameter is not valid.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_PARAM` if the value of speakerId does not match one of the devices returned by the WebRTC JS SDK `media.getDevices().speaker`.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_PARAM` if the value of duration is invalid.Usage notes:*   If duration is specified and is longer than the length of specified audio file, playback will loop until `duration` expires.
+    *   If duration is specified and is shorter than the length of specified audio file, playback will be truncated when `duration` expires.
+    *   Therefore, when specifying duration, it is helpful to know the target file's playback length.
+    *   If duration is not specified, the audio file will be played in its entirety once.
+    *   Playback can be stopped at any time via the [api.stopAudio][12] API regardless of whether a duration is specified or not.
+    *   Calling this API a second time for a given audioId will stop any previous ongoing playback for the same audioId
+
+### stopAudio
+
+Stops any audio that's playing for the specified audidId. Has no effect if called after playback has already stopped.
+
+#### Parameters
+
+*   `audioId` **[string][3]** The same identifier used to start audio playing. See [api.playAudio][13]
+
+#### Examples
+
+```javascript
+citrixClient.stopAudio('ringExternalSpeaker')
+```
+
+### setup
+
+Initializes the Citrix UC SDK and sets up the WebRTC SDK to run in Citrix proxy mode.
+
+#### Parameters
+
+*   `SDK` **[Object][2]** The WebRTC JS SDK.
+*   `timeout` **[number][6]** The time to wait, in milliseconds, for the Citrix SDK to initialize. (optional, default `10000`)
 
 #### Examples
 
 ```javascript
 import citrixClient from '@rbbn/citrix-webrtc-sdk/citrix'
-// Start listening for events
-citrixClient.on(citrixClient.eventTypes.CITRIX_E911_DATA_CHANGED, data => {
-  // Do something with data
-})
+
+// Setup proxy mode on WebRTC SDK client by passing in the created client.
+try {
+  await citrixClient.setup(webrtcClient)
+} catch (error) {
+  // See Throws section and api.errorCodes documentation for list of possible errors.
+}
 ```
 
-[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_STATE` if Citrix proxy mode is already setup.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_PARAM` if provided SDK parameter is invalid.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `INVALID_STATE` if active calls are ongoing.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `VERSION_MISMATCH` if WebRTC JS SDK and Citrix WebRTC SDK versions mismatch.
+*   Throws **[api.CitrixError][7]** Will throw an error with code `CITRIX_SDK_ERROR` if Citrix UC SDK fails to initialize.
 
-[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+Returns **[Promise][8]** Resolves upon successful completion
 
-[3]: #apicitrixerror
+### teardown
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+Tears down the Citrix UC SDK and returns the WebRTC JS SDK to non-proxy mode.
 
-[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+This API will also trigger a device update within the WebRTC JS SDK after successfully
+tearing down the proxies.
 
-[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+#### Examples
 
-[7]: #apieventtypes
+```javascript
+try {
+  citrixClient.teardown()
+} catch (error) {
+  // See Throws section and api.errorCodes documentation for list of possible errors.
+}
+```
 
-[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+*   Throws **[api.CitrixError][7]** Will throw an error if active calls are ongoing.
 
-[9]: #apistopaudio
+Returns **[Promise][8]** Resolves upon successful completion.
 
-[10]: #apiplayaudio
+[1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[11]: #apicitrixerror
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[12]: #apierrorcodes
+[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[13]: #apigete911data
+[4]: #apieventtypes
+
+[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[7]: #apicitrixerror
+
+[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+[9]: #apigete911data
+
+[10]: #apicitrixerror
+
+[11]: #apierrorcodes
+
+[12]: #apistopaudio
+
+[13]: #apiplayaudio
